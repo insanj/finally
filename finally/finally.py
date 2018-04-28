@@ -17,6 +17,7 @@ class Finally:
 		for song in songs:
 			storage.storeSong(song)
 
+		storage.save()
 		print "***** Finished! *****"
 
 if __name__ == "__main__":

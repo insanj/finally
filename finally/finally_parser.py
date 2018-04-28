@@ -25,7 +25,10 @@ class FinallySongParser:
 		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow()) 
 		
 		parsedSong = FinallySong(originIdentifier)
-		parsedSong.name = songJSON["track"]["name"].encode('utf-8')
+
+		jsonSongValues = songJSON["track"]
+		parsedSong.name = jsonSongValues["name"].encode('utf-8')
+		parsedSong.identifier = jsonSongValues["id"]
 
 		return parsedSong
 
@@ -46,7 +49,11 @@ class FinallySongParser:
 		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow()) 
 		
 		parsedSong = FinallySong(originIdentifier)
-		parsedSong.name = songXML["string"][0].encode('utf-8') # indexes given in keys array
+		xmlSongStringValues = songXML["string"]
+		parsedSong.name = xmlSongStringValues[0].encode('utf-8') # indexes given in keys array
+		
+		xmlSongIntegerValues = songXML["integer"]
+		parsedSong.identifier = str(xmlSongIntegerValues[0])
 
 		return parsedSong
 

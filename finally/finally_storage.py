@@ -6,6 +6,8 @@ from finally_parser import *
 from seanh_formatFilename import *
 
 class FinallyStorage:
+	songs = []
+
 	def __init__(self, path="exports"):
 		self.path = path
 		self.createPathIfNeeded()
@@ -19,13 +21,17 @@ class FinallyStorage:
 		return os.path.join(os.getcwd(), self.path)
 
 	def storeSong(self, song):
-		songName = song.identifier + song.name + ".finally"
-		songFilename = format_filename(songName)
-		songJSON = song.convertToJSON()
-		
-		parsedFilename = os.path.join(self.currentPath(), songFilename)
-		with open(parsedFilename, 'w') as writingFile:
-		    writingFile.write(songJSON)
+		self.songs.append(song)
+
+	def save(self):
+		songJSONDict = []
+		for song in self.songs:
+			songJSONDict.append(song.convertToJSON())
+
+		filename = os.path.join(self.currentPath(), "storage.finally")
+		jsonString = json.dumps(songJSONDict)
+		with open(filename, 'w') as storingFile:
+			storingFile.write(jsonString)
 
 if __name__ == "__main__":
 	print("***** Default FinallyStorage results: *****")

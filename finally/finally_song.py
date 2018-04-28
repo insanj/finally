@@ -27,8 +27,8 @@ class FinallySongOrigin:
 class FinallySong:
 	origin = None
 	name = None
-	identifier = uuid.uuid1()
-	
+	identifier = None
+
 	def __init__(self, origin):
 		self.origin = origin
 
