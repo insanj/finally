@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from finally_parser import *
 
 class Finally:
 	def main():
