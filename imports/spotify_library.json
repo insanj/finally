@@ -1,0 +1,1434 @@
+{
+  "href" : "https://api.spotify.com/v1/me/tracks?offset=0&limit=20",
+  "items" : [ {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/2xmwmjbDjhkN4Avi5lnRMI"
+        },
+        "href" : "https://api.spotify.com/v1/artists/2xmwmjbDjhkN4Avi5lnRMI",
+        "id" : "2xmwmjbDjhkN4Avi5lnRMI",
+        "name" : "Uncle Mael",
+        "type" : "artist",
+        "uri" : "spotify:artist:2xmwmjbDjhkN4Avi5lnRMI"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 165276,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192496"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/5mQT9pbyVOUTd3bO8vwzoR"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/5mQT9pbyVOUTd3bO8vwzoR",
+      "id" : "5mQT9pbyVOUTd3bO8vwzoR",
+      "name" : "For You (feat. Uncle Mael)",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/f4bd92abc13ed8ef9b0ac4c3523c4758f0a2f64a?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 1,
+      "type" : "track",
+      "uri" : "spotify:track:5mQT9pbyVOUTd3bO8vwzoR"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 161462,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192506"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/3ZgB1M9y7dtiquCjcp4fdR"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/3ZgB1M9y7dtiquCjcp4fdR",
+      "id" : "3ZgB1M9y7dtiquCjcp4fdR",
+      "name" : "Right Now",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/dae82524c4826257dc51de2dec761b77bf873acc?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 2,
+      "type" : "track",
+      "uri" : "spotify:track:3ZgB1M9y7dtiquCjcp4fdR"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 180062,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192497"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/6QQvObJmEFWBeRKZdEG6Mt"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/6QQvObJmEFWBeRKZdEG6Mt",
+      "id" : "6QQvObJmEFWBeRKZdEG6Mt",
+      "name" : "Only You",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/7ca33af457ea6896259caff452f47c72a21e807f?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 3,
+      "type" : "track",
+      "uri" : "spotify:track:6QQvObJmEFWBeRKZdEG6Mt"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 179520,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192500"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/4qQKBGqKmQPV1O9KkB0Q0X"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/4qQKBGqKmQPV1O9KkB0Q0X",
+      "id" : "4qQKBGqKmQPV1O9KkB0Q0X",
+      "name" : "Vibe",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/d5c0943be5b6afc162beac484887866804c36ef7?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 4,
+      "type" : "track",
+      "uri" : "spotify:track:4qQKBGqKmQPV1O9KkB0Q0X"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 152398,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192504"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0JMLAtE7cXKeq3QUxJeS8C"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0JMLAtE7cXKeq3QUxJeS8C",
+      "id" : "0JMLAtE7cXKeq3QUxJeS8C",
+      "name" : "Overdue (Interlude)",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/f223900996347555466927802c3cabc5cb9b2a8e?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 5,
+      "type" : "track",
+      "uri" : "spotify:track:0JMLAtE7cXKeq3QUxJeS8C"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 58618,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192499"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/7DvhChd30skId9M0298yW3"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/7DvhChd30skId9M0298yW3",
+      "id" : "7DvhChd30skId9M0298yW3",
+      "name" : "SquadTwo.0",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/58f5c2d185c513302b96ecaf5aa1927b435a23e8?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 6,
+      "type" : "track",
+      "uri" : "spotify:track:7DvhChd30skId9M0298yW3"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 147957,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192498"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/7w1CbSCplBqafKXgSwxLhe"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/7w1CbSCplBqafKXgSwxLhe",
+      "id" : "7w1CbSCplBqafKXgSwxLhe",
+      "name" : "It's Like",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/c355427f1fec1bcfec2fcd333981483bb802fc4c?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 7,
+      "type" : "track",
+      "uri" : "spotify:track:7w1CbSCplBqafKXgSwxLhe"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 193071,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192503"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/7otw2itnM9V35e47VOts0u"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/7otw2itnM9V35e47VOts0u",
+      "id" : "7otw2itnM9V35e47VOts0u",
+      "name" : "Too Bad",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/e3c82c845bc5d66acdfbc4090538de6006f15fc3?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 8,
+      "type" : "track",
+      "uri" : "spotify:track:7otw2itnM9V35e47VOts0u"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/7Hjbimq43OgxaBRpFXic4x"
+        },
+        "href" : "https://api.spotify.com/v1/artists/7Hjbimq43OgxaBRpFXic4x",
+        "id" : "7Hjbimq43OgxaBRpFXic4x",
+        "name" : "Saba",
+        "type" : "artist",
+        "uri" : "spotify:artist:7Hjbimq43OgxaBRpFXic4x"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 236721,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192502"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/2ZYkQOdxpCMI3x3bxH3x05"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/2ZYkQOdxpCMI3x3bxH3x05",
+      "id" : "2ZYkQOdxpCMI3x3bxH3x05",
+      "name" : "Hol' Up (feat. Saba)",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/6a65076210ed3bcf26db9c98db4035ad4a22e892?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 9,
+      "type" : "track",
+      "uri" : "spotify:track:2ZYkQOdxpCMI3x3bxH3x05"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 154540,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192501"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0SyKsOfKn8N00Eo8XTouDZ"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0SyKsOfKn8N00Eo8XTouDZ",
+      "id" : "0SyKsOfKn8N00Eo8XTouDZ",
+      "name" : "Remember",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/bba62d35b815a73970277d60789c8c8aeb1c1e93?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 10,
+      "type" : "track",
+      "uri" : "spotify:track:0SyKsOfKn8N00Eo8XTouDZ"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 166948,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192507"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/3JiyHb2dbYAZRHJ9mFysei"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/3JiyHb2dbYAZRHJ9mFysei",
+      "id" : "3JiyHb2dbYAZRHJ9mFysei",
+      "name" : "Twelve",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/45cc4bfcbfcbc496f34f6c058e3bbd0a88e3eeef?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 11,
+      "type" : "track",
+      "uri" : "spotify:track:3JiyHb2dbYAZRHJ9mFysei"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:19:44Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+          },
+          "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+          "id" : "1MlV4b7HGi4AiZWXholyVu",
+          "name" : "IshDARR",
+          "type" : "artist",
+          "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/33YGepbVDBXZyqz45rqFuw"
+        },
+        "href" : "https://api.spotify.com/v1/albums/33YGepbVDBXZyqz45rqFuw",
+        "id" : "33YGepbVDBXZyqz45rqFuw",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/a53b72ed90cb7284606a1fc03c5dee0914a13200",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/54fa773dd865af8b5fb7b546cf344ef35a3ca0f3",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/35706fcb6abbda5f841b71dfdea65097283bc924",
+          "width" : 64
+        } ],
+        "name" : "Old Soul, Young Spirit",
+        "release_date" : "2015-03-04",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:33YGepbVDBXZyqz45rqFuw"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/1MlV4b7HGi4AiZWXholyVu"
+        },
+        "href" : "https://api.spotify.com/v1/artists/1MlV4b7HGi4AiZWXholyVu",
+        "id" : "1MlV4b7HGi4AiZWXholyVu",
+        "name" : "IshDARR",
+        "type" : "artist",
+        "uri" : "spotify:artist:1MlV4b7HGi4AiZWXholyVu"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/3TfU4sz8TFehNl655VS7wy"
+        },
+        "href" : "https://api.spotify.com/v1/artists/3TfU4sz8TFehNl655VS7wy",
+        "id" : "3TfU4sz8TFehNl655VS7wy",
+        "name" : "Tommy Boozewell",
+        "type" : "artist",
+        "uri" : "spotify:artist:3TfU4sz8TFehNl655VS7wy"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 231497,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USUYG1192505"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/0yj88Q8SvdMLwByZcsJdUS"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/0yj88Q8SvdMLwByZcsJdUS",
+      "id" : "0yj88Q8SvdMLwByZcsJdUS",
+      "name" : "Still on It (feat. Tommy Boozewell)",
+      "popularity" : 0,
+      "preview_url" : "https://p.scdn.co/mp3-preview/2266313b765ce8bc37515dc906e4257b722a4704?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 12,
+      "type" : "track",
+      "uri" : "spotify:track:0yj88Q8SvdMLwByZcsJdUS"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:11:43Z",
+    "track" : {
+      "album" : {
+        "album_type" : "single",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+          "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+          "name" : "Elenne",
+          "type" : "artist",
+          "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1lv5e49MaJZssirOn4SWzn"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1lv5e49MaJZssirOn4SWzn",
+        "id" : "1lv5e49MaJZssirOn4SWzn",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/1e72e1312030ee78879e26e4105836d8c1e2192c",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/17fa0626524a7adabf9b0f1d661bea45f0b9af3e",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/9c8092d5d8239fd764d7502846a66174728f9a74",
+          "width" : 64
+        } ],
+        "name" : "Yellowstoned Ep",
+        "release_date" : "2018-04-20",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1lv5e49MaJZssirOn4SWzn"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+        "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+        "name" : "Elenne",
+        "type" : "artist",
+        "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 260240,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "FR2X41805935"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/33LNexgMUMKzKVaX5GcCyn"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/33LNexgMUMKzKVaX5GcCyn",
+      "id" : "33LNexgMUMKzKVaX5GcCyn",
+      "name" : "Hotbox",
+      "popularity" : 15,
+      "preview_url" : "https://p.scdn.co/mp3-preview/5e84eebf26e8826abd78485ca94156ca4897b792?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 1,
+      "type" : "track",
+      "uri" : "spotify:track:33LNexgMUMKzKVaX5GcCyn"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:11:43Z",
+    "track" : {
+      "album" : {
+        "album_type" : "single",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+          "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+          "name" : "Elenne",
+          "type" : "artist",
+          "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1lv5e49MaJZssirOn4SWzn"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1lv5e49MaJZssirOn4SWzn",
+        "id" : "1lv5e49MaJZssirOn4SWzn",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/1e72e1312030ee78879e26e4105836d8c1e2192c",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/17fa0626524a7adabf9b0f1d661bea45f0b9af3e",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/9c8092d5d8239fd764d7502846a66174728f9a74",
+          "width" : 64
+        } ],
+        "name" : "Yellowstoned Ep",
+        "release_date" : "2018-04-20",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1lv5e49MaJZssirOn4SWzn"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+        "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+        "name" : "Elenne",
+        "type" : "artist",
+        "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 242318,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "FR2X41805936"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/10YVIG7yVuY9pAFG3abNM3"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/10YVIG7yVuY9pAFG3abNM3",
+      "id" : "10YVIG7yVuY9pAFG3abNM3",
+      "name" : "King of Thebes",
+      "popularity" : 16,
+      "preview_url" : "https://p.scdn.co/mp3-preview/0832373963ea62474c818131c219d9074d6384f4?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 2,
+      "type" : "track",
+      "uri" : "spotify:track:10YVIG7yVuY9pAFG3abNM3"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:11:43Z",
+    "track" : {
+      "album" : {
+        "album_type" : "single",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+          "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+          "name" : "Elenne",
+          "type" : "artist",
+          "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1lv5e49MaJZssirOn4SWzn"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1lv5e49MaJZssirOn4SWzn",
+        "id" : "1lv5e49MaJZssirOn4SWzn",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/1e72e1312030ee78879e26e4105836d8c1e2192c",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/17fa0626524a7adabf9b0f1d661bea45f0b9af3e",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/9c8092d5d8239fd764d7502846a66174728f9a74",
+          "width" : 64
+        } ],
+        "name" : "Yellowstoned Ep",
+        "release_date" : "2018-04-20",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1lv5e49MaJZssirOn4SWzn"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+        "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+        "name" : "Elenne",
+        "type" : "artist",
+        "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 160421,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "FR2X41805937"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/1dWII5JI0HqtzHXi9eVv6V"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/1dWII5JI0HqtzHXi9eVv6V",
+      "id" : "1dWII5JI0HqtzHXi9eVv6V",
+      "name" : "Nuggets & Mustard",
+      "popularity" : 21,
+      "preview_url" : "https://p.scdn.co/mp3-preview/6c538552c11b818285f8c4fd8530504fca1a7fc6?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 3,
+      "type" : "track",
+      "uri" : "spotify:track:1dWII5JI0HqtzHXi9eVv6V"
+    }
+  }, {
+    "added_at" : "2018-04-28T15:11:43Z",
+    "track" : {
+      "album" : {
+        "album_type" : "single",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+          },
+          "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+          "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+          "name" : "Elenne",
+          "type" : "artist",
+          "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1lv5e49MaJZssirOn4SWzn"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1lv5e49MaJZssirOn4SWzn",
+        "id" : "1lv5e49MaJZssirOn4SWzn",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/1e72e1312030ee78879e26e4105836d8c1e2192c",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/17fa0626524a7adabf9b0f1d661bea45f0b9af3e",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/9c8092d5d8239fd764d7502846a66174728f9a74",
+          "width" : 64
+        } ],
+        "name" : "Yellowstoned Ep",
+        "release_date" : "2018-04-20",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1lv5e49MaJZssirOn4SWzn"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/5bv2uGb0NPkGoYRa5m82Wv"
+        },
+        "href" : "https://api.spotify.com/v1/artists/5bv2uGb0NPkGoYRa5m82Wv",
+        "id" : "5bv2uGb0NPkGoYRa5m82Wv",
+        "name" : "Elenne",
+        "type" : "artist",
+        "uri" : "spotify:artist:5bv2uGb0NPkGoYRa5m82Wv"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 160336,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "FR2X41805938"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/5yvyG8wCn3iK70glkZXygY"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/5yvyG8wCn3iK70glkZXygY",
+      "id" : "5yvyG8wCn3iK70glkZXygY",
+      "name" : "Hydrate",
+      "popularity" : 18,
+      "preview_url" : "https://p.scdn.co/mp3-preview/7d53ecbaacffdb25aa6f51fc2b3a216b3e0706aa?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 4,
+      "type" : "track",
+      "uri" : "spotify:track:5yvyG8wCn3iK70glkZXygY"
+    }
+  }, {
+    "added_at" : "2018-04-27T14:55:05Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+          },
+          "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+          "id" : "28j8lBWDdDSHSSt5oPlsX2",
+          "name" : "ZHU",
+          "type" : "artist",
+          "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1VAIQmXGA2BVlpXBrueMnk"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1VAIQmXGA2BVlpXBrueMnk",
+        "id" : "1VAIQmXGA2BVlpXBrueMnk",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/077053e51d62998e14fb166e0f7a7c7e7f0a0fa1",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/50ddf4eb8fef9bf5c85f7b66076d9d42a7d52150",
+          "width" : 64
+        } ],
+        "name" : "RINGOS DESERT PT.1",
+        "release_date" : "2018-04-26",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1VAIQmXGA2BVlpXBrueMnk"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+        },
+        "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+        "id" : "28j8lBWDdDSHSSt5oPlsX2",
+        "name" : "ZHU",
+        "type" : "artist",
+        "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/2sphpXGg1u97VSzbm5gR2P"
+        },
+        "href" : "https://api.spotify.com/v1/artists/2sphpXGg1u97VSzbm5gR2P",
+        "id" : "2sphpXGg1u97VSzbm5gR2P",
+        "name" : "JOY.",
+        "type" : "artist",
+        "uri" : "spotify:artist:2sphpXGg1u97VSzbm5gR2P"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 227717,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "USYBL1800640"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/29JaVsOOOQ3aedppR4u3wz"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/29JaVsOOOQ3aedppR4u3wz",
+      "id" : "29JaVsOOOQ3aedppR4u3wz",
+      "name" : "Stormy Love, NM. (feat. JOY.)",
+      "popularity" : 18,
+      "preview_url" : "https://p.scdn.co/mp3-preview/7f820bdb6a6df482400f763850d6fb6b0cf74cfb?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 1,
+      "type" : "track",
+      "uri" : "spotify:track:29JaVsOOOQ3aedppR4u3wz"
+    }
+  }, {
+    "added_at" : "2018-04-27T14:55:05Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+          },
+          "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+          "id" : "28j8lBWDdDSHSSt5oPlsX2",
+          "name" : "ZHU",
+          "type" : "artist",
+          "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1VAIQmXGA2BVlpXBrueMnk"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1VAIQmXGA2BVlpXBrueMnk",
+        "id" : "1VAIQmXGA2BVlpXBrueMnk",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/077053e51d62998e14fb166e0f7a7c7e7f0a0fa1",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/50ddf4eb8fef9bf5c85f7b66076d9d42a7d52150",
+          "width" : 64
+        } ],
+        "name" : "RINGOS DESERT PT.1",
+        "release_date" : "2018-04-26",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1VAIQmXGA2BVlpXBrueMnk"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+        },
+        "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+        "id" : "28j8lBWDdDSHSSt5oPlsX2",
+        "name" : "ZHU",
+        "type" : "artist",
+        "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+      }, {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/4APHks5GcW1GrlfnSvL5O3"
+        },
+        "href" : "https://api.spotify.com/v1/artists/4APHks5GcW1GrlfnSvL5O3",
+        "id" : "4APHks5GcW1GrlfnSvL5O3",
+        "name" : "Karnaval Blues",
+        "type" : "artist",
+        "uri" : "spotify:artist:4APHks5GcW1GrlfnSvL5O3"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 213025,
+      "explicit" : true,
+      "external_ids" : {
+        "isrc" : "USYBL1800670"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/76tXVbmQtOOAfqRyeMV0Ug"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/76tXVbmQtOOAfqRyeMV0Ug",
+      "id" : "76tXVbmQtOOAfqRyeMV0Ug",
+      "name" : "Still Want U",
+      "popularity" : 17,
+      "preview_url" : "https://p.scdn.co/mp3-preview/3dd583c0ec9624f66812d965a79d0046a5a9bb44?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 2,
+      "type" : "track",
+      "uri" : "spotify:track:76tXVbmQtOOAfqRyeMV0Ug"
+    }
+  }, {
+    "added_at" : "2018-04-27T14:55:05Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+          },
+          "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+          "id" : "28j8lBWDdDSHSSt5oPlsX2",
+          "name" : "ZHU",
+          "type" : "artist",
+          "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1VAIQmXGA2BVlpXBrueMnk"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1VAIQmXGA2BVlpXBrueMnk",
+        "id" : "1VAIQmXGA2BVlpXBrueMnk",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/077053e51d62998e14fb166e0f7a7c7e7f0a0fa1",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/50ddf4eb8fef9bf5c85f7b66076d9d42a7d52150",
+          "width" : 64
+        } ],
+        "name" : "RINGOS DESERT PT.1",
+        "release_date" : "2018-04-26",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1VAIQmXGA2BVlpXBrueMnk"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+        },
+        "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+        "id" : "28j8lBWDdDSHSSt5oPlsX2",
+        "name" : "ZHU",
+        "type" : "artist",
+        "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 273257,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "USYBL1800679"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/4WyKR8AvrQUgPCekn8e3Cu"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/4WyKR8AvrQUgPCekn8e3Cu",
+      "id" : "4WyKR8AvrQUgPCekn8e3Cu",
+      "name" : "Guilty Love",
+      "popularity" : 17,
+      "preview_url" : "https://p.scdn.co/mp3-preview/cfd9486245b450eb1e4d498b77189cea9e1272c5?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 3,
+      "type" : "track",
+      "uri" : "spotify:track:4WyKR8AvrQUgPCekn8e3Cu"
+    }
+  }, {
+    "added_at" : "2018-04-27T14:55:05Z",
+    "track" : {
+      "album" : {
+        "album_type" : "album",
+        "artists" : [ {
+          "external_urls" : {
+            "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+          },
+          "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+          "id" : "28j8lBWDdDSHSSt5oPlsX2",
+          "name" : "ZHU",
+          "type" : "artist",
+          "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+        } ],
+        "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/album/1VAIQmXGA2BVlpXBrueMnk"
+        },
+        "href" : "https://api.spotify.com/v1/albums/1VAIQmXGA2BVlpXBrueMnk",
+        "id" : "1VAIQmXGA2BVlpXBrueMnk",
+        "images" : [ {
+          "height" : 640,
+          "url" : "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+          "width" : 640
+        }, {
+          "height" : 300,
+          "url" : "https://i.scdn.co/image/077053e51d62998e14fb166e0f7a7c7e7f0a0fa1",
+          "width" : 300
+        }, {
+          "height" : 64,
+          "url" : "https://i.scdn.co/image/50ddf4eb8fef9bf5c85f7b66076d9d42a7d52150",
+          "width" : 64
+        } ],
+        "name" : "RINGOS DESERT PT.1",
+        "release_date" : "2018-04-26",
+        "release_date_precision" : "day",
+        "type" : "album",
+        "uri" : "spotify:album:1VAIQmXGA2BVlpXBrueMnk"
+      },
+      "artists" : [ {
+        "external_urls" : {
+          "spotify" : "https://open.spotify.com/artist/28j8lBWDdDSHSSt5oPlsX2"
+        },
+        "href" : "https://api.spotify.com/v1/artists/28j8lBWDdDSHSSt5oPlsX2",
+        "id" : "28j8lBWDdDSHSSt5oPlsX2",
+        "name" : "ZHU",
+        "type" : "artist",
+        "uri" : "spotify:artist:28j8lBWDdDSHSSt5oPlsX2"
+      } ],
+      "available_markets" : [ "AD", "AR", "AT", "AU", "BE", "BG", "BO", "BR", "CA", "CH", "CL", "CO", "CR", "CY", "CZ", "DE", "DK", "DO", "EC", "EE", "ES", "FI", "FR", "GB", "GR", "GT", "HK", "HN", "HU", "ID", "IE", "IL", "IS", "IT", "JP", "LI", "LT", "LU", "LV", "MC", "MT", "MX", "MY", "NI", "NL", "NO", "NZ", "PA", "PE", "PH", "PL", "PT", "PY", "RO", "SE", "SG", "SK", "SV", "TH", "TR", "TW", "US", "UY", "VN", "ZA" ],
+      "disc_number" : 1,
+      "duration_ms" : 374610,
+      "explicit" : false,
+      "external_ids" : {
+        "isrc" : "USYBL1800681"
+      },
+      "external_urls" : {
+        "spotify" : "https://open.spotify.com/track/4jvEkmbwLoK8wtOanIpfgZ"
+      },
+      "href" : "https://api.spotify.com/v1/tracks/4jvEkmbwLoK8wtOanIpfgZ",
+      "id" : "4jvEkmbwLoK8wtOanIpfgZ",
+      "name" : "Desert Woman",
+      "popularity" : 15,
+      "preview_url" : "https://p.scdn.co/mp3-preview/fc2e611c5decafd3b10bfeee2abf90813d71478a?cid=774b29d4f13844c495f206cafdad9c86",
+      "track_number" : 4,
+      "type" : "track",
+      "uri" : "spotify:track:4jvEkmbwLoK8wtOanIpfgZ"
+    }
+  } ],
+  "limit" : 20,
+  "next" : "https://api.spotify.com/v1/me/tracks?offset=20&limit=20",
+  "offset" : 0,
+  "previous" : null,
+  "total" : 7831
+}

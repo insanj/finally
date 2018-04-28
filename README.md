@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="drum.png" width=75 height=75 />
+   <img src="resources/drum.png" width=75 height=75 />
    <h3 align="center">finally</h3>
    <h4 align="center">personal music library CRM</h4>
 </p>
