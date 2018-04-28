@@ -3,17 +3,21 @@ import os
 import glob
 from finally_importer import *
 from finally_parser import *
-from finally_storage_json import *
+from finally_storage_providers import *
 from external import *
 
 class FinallyStorage:
 	songs = []
 	providers = []
 
-	def __init__(self, providers=[FinallyStorageJSONProvider()], path="exports"):
+	def __init__(self, providers=None, path="exports"):
 		self.path = path
-		self.providers = providers
 		self.createPathIfNeeded()
+
+		if providers is None:
+			self.providers = [FinallyStorageJSONProvider(path), FinallyStorageMySQLProvider(path)]
+		else:
+			self.providers = providers
 
 	def createPathIfNeeded(self):
 		cp = self.currentPath()
@@ -29,7 +33,7 @@ class FinallyStorage:
 	def save(self):
 		path = self.currentPath()
 		for provider in self.providers:
-			provider.save(self.songs, path)
+			provider.save(self.songs)
 
 if __name__ == "__main__":
 	print("***** Default FinallyStorage results: *****")
