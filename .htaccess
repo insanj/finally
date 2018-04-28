@@ -1,0 +1,4 @@
+DirectoryIndex index.html
+Options -Indexes
+AddHandler cgi-script .py 
+Options +ExecCGI

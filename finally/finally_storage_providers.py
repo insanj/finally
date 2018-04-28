@@ -17,14 +17,19 @@ class FinallyStorageProvider:
 		raise ValueException("FinallyStorageProvider no-op")
 
 class FinallyStorageJSONProvider(FinallyStorageProvider):
+	@classmethod
+	def convertToJSONArray(self, songs):
+		songJSONArray = []
+		for song in songs:
+			songJSONArray.append(song.convertToJSON())
+		return songJSONArray
+		
 	def save(self, songs):
 		print "[FinallyStorageJSONProvider] saving " + str(len(songs)) + " songs"
-		songJSONDict = []
-		for song in songs:
-			songJSONDict.append(song.convertToJSON())
-
+		
+		songJSONArray = FinallyStorageJSONProvider.convertToJSONArray(songs)
 		filename = os.path.join(self.path, "finally.json")
-		jsonString = json.dumps(songJSONDict)
+		jsonString = json.dumps(songJSONArray)
 		with open(filename, 'w') as storingFile:
 			storingFile.write(jsonString)
 

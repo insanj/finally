@@ -1,1 +1,1 @@
-"C:\Program Files (x86)\GnuWin32\bin\make.exe" windows
+"C:\Program Files (x86)\GnuWin32\bin\make.exe"
