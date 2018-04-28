@@ -2,9 +2,9 @@
 
 class Finally:
 	def main():
-		path = "imports"
-		importer = FinallyImporter(path)
+		importer = FinallyImporter()
 		files = importer.findImportableFiles()
+
 		parser = FinallySongParser()
 		storage = FinallyStorage()
 
@@ -13,4 +13,4 @@ class Finally:
 			for song in songsInFile:
 				storage.storeSong(song)
 
-		print "Finished!"
+		print "***** Finished! *****"
