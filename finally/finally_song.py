@@ -1,4 +1,6 @@
 #!/usr/bin/python
+import json
+import uuid
 
 class FinallySongOrigin:
 	identifier = None
@@ -25,5 +27,10 @@ class FinallySongOrigin:
 class FinallySong:
 	origin = None
 	name = None
+	identifier = uuid.uuid1()
+	
 	def __init__(self, origin):
 		self.origin = origin
+
+	def convertToJSON(self):
+		return json.dumps(self, default=lambda o: o.__dict__)

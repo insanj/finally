@@ -25,21 +25,18 @@ class FinallySongParser:
 		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow()) 
 		
 		parsedSong = FinallySong(originIdentifier)
-		parsedSong.name = songJSON["name"]
+		parsedSong.name = songJSON["track"]["name"].encode('utf-8')
 
 		return parsedSong
 
 	def parseSpotifyFileIntoSongs(self, file):
-		jsonDump = json.dumps(file)
-		jsonSongs = []
-		for key in jsonDump:
-			if key == "songs":
-				for jsonDumpSong in jsonDump[key]:
-					jsonSongs.append(jsonDumpSong)
-
+		jsonDump = json.loads(file.contents)
+		jsonTracks = jsonDump["items"]
 		parsedSongs = []
-		for jsonSong in jsonSongs:
-			parsedSongs.append(self.parseSpotifyJSONIntoSong(jsonSong))
+		for track in jsonTracks:
+			parsedSongs.append(self.parseSpotifyJSONIntoSong(track))
+
+		return parsedSongs
 
 	def checkIfiTunesFile(self, file):
 		return file.path.endswith('.xml')
@@ -71,6 +68,18 @@ if __name__ == "__main__":
 	parsedFiles = []
 
 	file = defaultFiles[0]
+	print("Parsing file = " + file.path)
+	parsedSongs = defaultParser.parseFileIntoSongs(file)
+	parsedFile = file
+	parsedFile.parsedSongs = parsedSongs
+	parsedFiles.append(parsedFile)
+
+	for file in parsedFiles:
+		print("Parsed file = " + parsedFile.path)
+		for song in file.parsedSongs:
+			print("Parsed song = " + song.name)
+
+	file = defaultFiles[1]
 	print("Parsing file = " + file.path)
 	parsedSongs = defaultParser.parseFileIntoSongs(file)
 	parsedFile = file
