@@ -4,7 +4,7 @@ import xml.etree.ElementTree
 from finally_importer import *
 from finally_song import *
 from finally_file import *
-from eric_scrivner_xml import *
+from external import *
 
 class FinallySongParser:
 	def parseFileIntoSongs(self, file): # main entry point

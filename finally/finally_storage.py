@@ -3,7 +3,7 @@ import os
 import glob
 from finally_importer import *
 from finally_parser import *
-from seanh_formatFilename import *
+from external import *
 
 class FinallyStorage:
 	songs = []
