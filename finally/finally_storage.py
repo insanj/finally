@@ -3,13 +3,16 @@ import os
 import glob
 from finally_importer import *
 from finally_parser import *
+from finally_storage_json import *
 from external import *
 
 class FinallyStorage:
 	songs = []
+	providers = []
 
-	def __init__(self, path="exports"):
+	def __init__(self, providers=[FinallyStorageJSONProvider()], path="exports"):
 		self.path = path
+		self.providers = providers
 		self.createPathIfNeeded()
 
 	def createPathIfNeeded(self):
@@ -24,14 +27,9 @@ class FinallyStorage:
 		self.songs.append(song)
 
 	def save(self):
-		songJSONDict = []
-		for song in self.songs:
-			songJSONDict.append(song.convertToJSON())
-
-		filename = os.path.join(self.currentPath(), "storage.finally")
-		jsonString = json.dumps(songJSONDict)
-		with open(filename, 'w') as storingFile:
-			storingFile.write(jsonString)
+		path = self.currentPath()
+		for provider in self.providers:
+			provider.save(self.songs, path)
 
 if __name__ == "__main__":
 	print("***** Default FinallyStorage results: *****")
