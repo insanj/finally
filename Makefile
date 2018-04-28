@@ -1,3 +1,3 @@
 
 all:
-	python finally.py
+	python finally/finally.py
