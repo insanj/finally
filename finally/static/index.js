@@ -29,6 +29,7 @@ function renderFinallyData(json) {
         return b.name-a.name;
     });;
 
+    $("body").empty();
     for (var i = 0; i < sortedSongs.length; i++) {
         var div = sortedSongs[i].generateDiv();
         $("body").append(div);
@@ -37,7 +38,7 @@ function renderFinallyData(json) {
 
 function runFinallyPython(completionBlock) {
     var phraseAPIURL = "/run"
-    $.getJSON(phraseAPIURL, function(data) {
+    $.get(phraseAPIURL, function(data) {
         console.log(data)
         completionBlock(data);
     }).fail(function(jqXHR, textStatus) {

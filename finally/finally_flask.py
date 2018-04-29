@@ -1,14 +1,14 @@
 #!/usr/bin/python
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request, render_template, send_from_directory
 from finally_parser import *
 from finally_storage_providers import *
 
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 
 @app.route('/')
 def index():
-	with open("../index.html") as fileContents:
-		return fileContents.read()
+	message = "Hello, world"
+	return render_template('index.html', message=message)
 
 @app.route("/run")
 def run():
