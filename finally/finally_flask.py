@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from flask import Flask, jsonify, request, render_template, send_from_directory
+from flask import Flask, jsonify, render_template
 from finally_parser import *
 from finally_storage_providers import *
 
@@ -7,8 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	message = "Hello, world"
-	return render_template('index.html', message=message)
+	return render_template('index.html')
 
 @app.route("/run")
 def run():

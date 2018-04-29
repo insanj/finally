@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import json
 import uuid
+import datetime
 
 class FinallySong:
 	origin = None
@@ -10,8 +11,22 @@ class FinallySong:
 		self.origin = origin
 		self.metadata = metadata
 
+	def serializedMetadata(self):
+		jsonableMetadata = {}
+		for key in self.metadata.keys():
+			value = self.metadata[key]
+			if isinstance(value, datetime.datetime):
+				jsonableMetadata[key] = str(value)
+			else:
+				jsonableMetadata[key] = value
+
+		return json.dumps(jsonableMetadata)
+
+	def serializedOrigin(self):
+		return self.origin.serializable()
+
 	def convertToJSON(self):
-		metadataWithOrigin = {"origin" : self.origin.serializable(), "metadata" : self.metadata}
+		metadataWithOrigin = {"origin" : self.serializedOrigin(), "metadata" : self.serializedMetadata()}
 		return json.dumps(metadataWithOrigin, default=lambda o: o.__dict__)
 
 class FinallySongOrigin:

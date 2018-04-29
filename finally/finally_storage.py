@@ -15,7 +15,7 @@ class FinallyStorage:
 		FinallyStorage.createPathIfNeeded(path)
 
 		if providers is None:
-			self.providers = [FinallyStorageJSONProvider(path), FinallyStorageMySQLProvider(path)]
+			self.providers = [FinallyStorageJSONProvider(path)]#, FinallyStorageMySQLProvider(path)]
 		else:
 			self.providers = providers
 

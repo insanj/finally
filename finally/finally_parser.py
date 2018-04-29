@@ -1,11 +1,8 @@
 #!/usr/bin/python
 import datetime
-import xmltodict
-import xml.etree.ElementTree
 from finally_importer import *
 from finally_song import *
 from finally_file import *
-from finally_storage import *
 from external import *
 
 class FinallySongParser:
@@ -51,49 +48,21 @@ class FinallySongParser:
 	def parseiTunesXMLIntoSong(self, songXML, xmlPath):
 		originIdentifier = FinallySongOrigin.iTunesIdentifier()
 		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow(), xmlPath) 
-		
-		parsedSongValues = {}
-		xmlSongStringValues = songXML["string"]
-		parsedSongValues["name"] = xmlSongStringValues[0].encode('utf-8') # indexes given in keys array
-		
-		xmlSongIntegerValues = songXML["integer"]
-		parsedSongValues["identifier"] = str(xmlSongIntegerValues[0])
 
-		parsedSongValues["artists"] = [str(xmlSongStringValues[1]), str(xmlSongStringValues[2])]
+		# songXML = ('TRACK_ID', {'METADATA_KEY' : METADATA})
+		trackMetadata = songXML[1]
 
-		parsedSong = FinallySong(origin, parsedSongValues)
+		parsedSong = FinallySong(origin, trackMetadata)
 		return parsedSong
 
-	def debugiTunesXML(self, xmlFileDict):
-		tmpstr = ">"
-		tmpstr += str(xmlFileDict)
-		#tmpstr += ">plist"
-		#tmpstr += str(xmlFileDict["plist"])
-		#tmpstr += ">plist>dict"
-		#tmpstr += str(xmlFileDict["plist"]["dict"])
-		#tmpstr += ">plist>dict>dict"
-		#tmpstr += str(xmlFileDict["plist"]["dict"]["dict"])
-		#tmpstr += ">plist>dict>dict>dict"
-		#tmpstr += str(xmlFileDict["plist"]["dict"]["dict"]["dict"])
-		tmppath = os.path.join(os.getcwd(), "logs")
-		tmpfilepath = os.path.join(tmppath, "finallyituneslog.json")
-		FinallyStorage.arbitrarySave(tmppath, tmpfilepath, tmpstr)
-		print("saved")
-		return False
-
 	def parseiTunesFileIntoSongs(self, file):
-		#xmlFileDict = xmltodict.parse(file.contents)
-		xmlFileTree = xml.etree.ElementTree.fromstring(file.contents)
-		xmlFileDict = make_dict_from_tree(xmlFileTree)
-
-		if self.debugiTunesXML(xmlFileDict) == False:
-			return None
-
-		xmlTrackDicts = xmlFileDict["plist"]["dict"]["dict"]
-		print(xmlTrackDicts)
+		parser = XmlPropertyListParser()
+		parsedLibraryPlist = parser.parse(file.contents)
+		parsedLibraryTracksDict = parsedLibraryPlist["Tracks"] # id : song
+		parsedLibraryTrackItems = parsedLibraryTracksDict.items()
 		parsedSongs = []
-		for xmlTrack in xmlTrackDicts:
-			parsedSongs.append(self.parseiTunesXMLIntoSong(xmlTrack, file.path))
+		for plistTrack in parsedLibraryTrackItems:
+			parsedSongs.append(self.parseiTunesXMLIntoSong(plistTrack, file.path))
 
 		return parsedSongs
 

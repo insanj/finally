@@ -1,0 +1,3 @@
+[submodule "finally/external/python_plist_parser"]
+	path = finally/external/python_plist_parser
+url=https://github.com/insanj/python-plist-parser
