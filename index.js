@@ -36,7 +36,7 @@ function renderFinallyData(json) {
 }
 
 function runFinallyPython(completionBlock) {
-    var phraseAPIURL = "finally/finally_api.py"
+    var phraseAPIURL = "/run"
     $.getJSON(phraseAPIURL, function(data) {
         console.log(data)
         completionBlock(data);

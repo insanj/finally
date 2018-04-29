@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="resources/drum.png" width=75 height=75 />
+   <img src="drum.png" width=75 height=75 />
    <h3 align="center">finally</h3>
    <h4 align="center">personal music library CRM</h4>
 </p>
@@ -23,12 +23,13 @@ curl -X "GET" "https://api.spotify.com/v1/me/tracks" -H "Accept: application/jso
 
 ### Run
 
-To run finally, which will allow you to import, aggregate, and export all of your music libraries, run `python finally/finally.py` or `make`. Have fun! :drum: 
+To run finally, which will allow you to import, aggregate, and export all of your music libraries, run `python finally/finally_flask.py` or `make`. Have fun! :drum: 
 
 
 ## Built with
 
 - Python
+- [Flask](https://github.com/pallets/flask)
 
 ## License
 
