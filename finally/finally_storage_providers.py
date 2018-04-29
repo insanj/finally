@@ -47,7 +47,7 @@ class FinallyStorageMySQLProvider(FinallyStorageProvider):
 	def openDatabase(self):
 		self.database = sqlite3.connect(self.path)
 		self.cursor = self.database.cursor()
-		songTableQuery = "CREATE TABLE IF NOT EXISTS " + self.tableName + "(id INTEGER PRIMARY KEY AUTOINCREMENT, identifier TEXT, origin TEXT, name TEXT)"
+		songTableQuery = "CREATE TABLE IF NOT EXISTS " + self.tableName + "(id INTEGER PRIMARY KEY AUTOINCREMENT, type TEXT, file TEXT, timestamp TEXT, metadata TEXT)"
 		self.cursor.execute(songTableQuery)
 		self.database.commit()
 
@@ -59,8 +59,7 @@ class FinallyStorageMySQLProvider(FinallyStorageProvider):
 		self.database.close()
 
 	def getSaveQueryForSong(self, song):
-		return "INSERT INTO " + self.tableName + " (identifier, origin, name) VALUES(?, ?, ?)"
-		# return "INSERT INTO " + self.tableName + "(identifier, name) VALUES('" + song.identifier + "', '" + encodedName + "')"
+		return "INSERT INTO " + self.tableName + " (type, file, timestamp, metadata) VALUES(?, ?, ?, ?)"
 
 	def save(self, songs):
 		print "[FinallyStorageMySQLProvider] saving " + str(len(songs)) + " songs"
@@ -70,8 +69,8 @@ class FinallyStorageMySQLProvider(FinallyStorageProvider):
 		total = len(songs)
 		for song in songs:
 			query = self.getSaveQueryForSong(song)
-			encodedSongName = format_filename(song.name)
-			self.cursor.execute(query, (song.identifier, song.origin, encodedSongName))
+			encodedMetadata = json.dumps(song.metadata)
+			self.cursor.execute(query, (song.origin.identifier, song.origin.path, song.origin.timestamp, encodedMetadata))
 			self.database.commit()
 
 			i = i + 1

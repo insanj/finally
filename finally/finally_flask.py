@@ -24,3 +24,8 @@ def run():
 		
 	jsonSongs = FinallyStorageJSONProvider.convertToJSONArray(songs)
 	return jsonify(jsonSongs)
+
+@app.route("/load")
+def load():
+	jsonData = open("exports/finally.json").read()
+	return jsonData

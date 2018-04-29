@@ -20,15 +20,15 @@ class FinallySongParser:
 	def checkIfSpotifyFile(self, file):
 		return file.path.endswith('.json')
 
-	def parseSpotifyJSONIntoSong(self, songJSON):
+	def parseSpotifyJSONIntoSong(self, songJSON, jsonPath):
 		originIdentifier = FinallySongOrigin.spotifyIdentifier()
-		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow()) 
-		
-		parsedSong = FinallySong(originIdentifier)
+		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow(), jsonPath) 
 
 		jsonSongValues = songJSON["track"]
-		parsedSong.name = jsonSongValues["name"].encode('utf-8')
-		parsedSong.identifier = jsonSongValues["id"]
+		parsedSongValues = {}
+		parsedSongValues["name"] = jsonSongValues["name"].encode('utf-8')
+		parsedSongValues["identifier"] = jsonSongValues["id"]
+		parsedSong = FinallySong(origin, parsedSongValues)
 
 		return parsedSong
 
@@ -37,24 +37,25 @@ class FinallySongParser:
 		jsonTracks = jsonDump["items"]
 		parsedSongs = []
 		for track in jsonTracks:
-			parsedSongs.append(self.parseSpotifyJSONIntoSong(track))
+			parsedSongs.append(self.parseSpotifyJSONIntoSong(track, file.path))
 
 		return parsedSongs
 
 	def checkIfiTunesFile(self, file):
 		return file.path.endswith('.xml')
 
-	def parseiTunesXMLIntoSong(self, songXML):
+	def parseiTunesXMLIntoSong(self, songXML, xmlPath):
 		originIdentifier = FinallySongOrigin.iTunesIdentifier()
-		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow()) 
+		origin = FinallySongOrigin(originIdentifier, datetime.datetime.utcnow(), xmlPath) 
 		
-		parsedSong = FinallySong(originIdentifier)
+		parsedSongValues = {}
 		xmlSongStringValues = songXML["string"]
-		parsedSong.name = xmlSongStringValues[0].encode('utf-8') # indexes given in keys array
+		parsedSongValues["name"] = xmlSongStringValues[0].encode('utf-8') # indexes given in keys array
 		
 		xmlSongIntegerValues = songXML["integer"]
-		parsedSong.identifier = str(xmlSongIntegerValues[0])
+		parsedSongValues["identifier"] = str(xmlSongIntegerValues[0])
 
+		parsedSong = FinallySong(origin, parsedSongValues)
 		return parsedSong
 
 	def parseiTunesFileIntoSongs(self, file):
@@ -63,7 +64,7 @@ class FinallySongParser:
 		xmlTracksList = xmlFileDict["plist"]["dict"]["dict"]["dict"] # hopefully
 		parsedSongs = []
 		for xmlTrack in xmlTracksList:
-			parsedSongs.append(self.parseiTunesXMLIntoSong(xmlTrack))
+			parsedSongs.append(self.parseiTunesXMLIntoSong(xmlTrack, file.path))
 
 		return parsedSongs
 
@@ -84,7 +85,7 @@ if __name__ == "__main__":
 	for file in parsedFiles:
 		print("Parsed file = " + parsedFile.path)
 		for song in file.parsedSongs:
-			print("Parsed song = " + song.name)
+			print("Parsed song = " + song.metadata.name)
 
 	file = defaultFiles[1]
 	print("Parsing file = " + file.path)
@@ -96,6 +97,6 @@ if __name__ == "__main__":
 	for file in parsedFiles:
 		print("Parsed file = " + parsedFile.path)
 		for song in file.parsedSongs:
-			print("Parsed song = " + song.name)
+			print("Parsed song = " + song.metadata.name)
 
 	print("Finished!")

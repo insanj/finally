@@ -11,11 +11,19 @@ class FinallySong {
     }
 }
 
-function renderFinallyData(json) {
+function renderFinallyData(jsonData) {
+    $("#alert").text("🥁 Rendering JSON data...");
+    var reasonable = jsonData.slice(0, 5);
     var songs = [];
-    for (var i = 0; i < json.length; i++) {
-        var songJSON = json[i];
-        var songParsedJSON = $.parseJSON(songJSON);
+    for (var i = 0; i < reasonable.length; i++) {
+        $("#alert").text("🥁 Rendering song " + i + "/" + reasonable.length);
+        var songJSON = reasonable[i];
+        var songParsedJSON = {};
+        try {
+            songParsedJSON = $.parseJSON(songJSON);
+        } catch(err) {
+            console.log(err)
+        }
 
         var name = songParsedJSON.name;
         var identifier = songParsedJSON.identifier;
@@ -25,6 +33,7 @@ function renderFinallyData(json) {
         songs.push(song);
     }
 
+    $("#alert").text("🥁 Sorting, then see ya!");
     var sortedSongs = songs.sort(function(a, b) {
         return b.name-a.name;
     });;
@@ -37,20 +46,23 @@ function renderFinallyData(json) {
 }
 
 function runFinallyPython(completionBlock) {
-    var phraseAPIURL = "/run"
-    $.get(phraseAPIURL, function(data) {
-        console.log(data)
+    $("#alert").text("🥁 Loading data...");
+    var phraseAPIURL = "/load"
+    $.getJSON(phraseAPIURL, function(data) {
+        $("#alert").text("🥁 Finished downloading, importing...");
         completionBlock(data);
     }).fail(function(jqXHR, textStatus) {
-        console.log(textStatus);
+        $("#alert").text("⚠ Error downloading!");
         completionBlock(null);
     });
 }
 
 function loadFinally() {
+    $("#alert").text("🥁 Welcome!");
+
     runFinallyPython(function(result) {
         if (result == null) {
-            console.log("⚠ result == null");
+            $("#alert").text("⚠ Unexpected error!");
             return;
         }
 
