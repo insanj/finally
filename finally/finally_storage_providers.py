@@ -75,7 +75,7 @@ class FinallyStorageMySQLProvider(FinallyStorageProvider):
 
 			i = i + 1
 			percent = (float(i)/float(total)) * 100
-			print "[FinallyStorageMySQLProvider] {0} {1}/{2} {3}%\r".format(song.origin, i, total, percent),
+			print "[FinallyStorageMySQLProvider] {0} {1}/{2} {3}%\r".format(song.origin.identifier, i, total, percent),
 			sys.stdout.flush()
 
 		self.closeDatabase()

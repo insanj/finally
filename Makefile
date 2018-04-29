@@ -8,9 +8,7 @@ import:
 
 deps:
 	pip install -U Flask
-
-
-windows: clean-windows python
+	pip install -U xmltodict
 
 clean-windows:
 	del /s /q *.pyc

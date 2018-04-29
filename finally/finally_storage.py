@@ -12,17 +12,17 @@ class FinallyStorage:
 
 	def __init__(self, providers=None, path="exports"):
 		self.path = path
-		self.createPathIfNeeded()
+		FinallyStorage.createPathIfNeeded(path)
 
 		if providers is None:
 			self.providers = [FinallyStorageJSONProvider(path), FinallyStorageMySQLProvider(path)]
 		else:
 			self.providers = providers
 
-	def createPathIfNeeded(self):
-		cp = self.currentPath()
-		if not os.path.exists(cp):
-			os.makedirs(cp)
+	@classmethod
+	def createPathIfNeeded(self, path):
+		if not os.path.exists(path):
+			os.makedirs(path)
 
 	def currentPath(self):
 		return os.path.join(os.getcwd(), self.path)
@@ -34,6 +34,12 @@ class FinallyStorage:
 		path = self.currentPath()
 		for provider in self.providers:
 			provider.save(self.songs)
+
+	@classmethod
+	def arbitrarySave(self, path, filePath, contents):
+		FinallyStorage.createPathIfNeeded(path)
+		with open(filePath, 'w') as arbitraryFile:
+			arbitraryFile.write(contents)
 
 if __name__ == "__main__":
 	print("***** Default FinallyStorage results: *****")
