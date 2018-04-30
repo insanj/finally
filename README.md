@@ -21,6 +21,9 @@ Take the output of that response and drag it into the `imports` directory. You c
 curl -X "GET" "https://api.spotify.com/v1/me/tracks" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer <TOKEN>" >> finally/imports/spotify_library.json
 ```
 
+![](example1.png)
+![](example2.png)
+
 ### Run
 
 To run finally, which will allow you to import, aggregate, and export all of your music libraries...
