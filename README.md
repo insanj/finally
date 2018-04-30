@@ -36,6 +36,7 @@ You may need to install the dependencies at `make deps`. Have fun! :drum:
 - [pallets/flask](https://github.com/pallets/flask)
 - [ishikawa/python-plist-parser](https://github.com/ishikawa/python-plist-parser)
 - https://gist.github.com/seanh/93666
+- https://github.com/javve/list.js
 
 ## License
 

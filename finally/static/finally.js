@@ -57,8 +57,28 @@ class FinallyFrontend {
 		this.parentDivSelector = parentDivSelector;
 	}
 
-	renderFinallyData(jsonData, maxPageSize) {
-	    $(this.alertDivSelector).text("🥁 Rendering JSON data...");
+	sortedSongList(songList) {
+		return songList.sort(function(a, b) {
+	    	if (a.origin == null) {
+	    		return b;
+	    	} else if (b.origin == null) {
+	    		return a;
+	    	} else if (a.origin === b.origin) {
+	    		if (a.artist == null) {
+	    			return b;
+	    		} else if (b.artist == null) {
+	    			return a;
+	    		} else {
+	    			return a.artist.toLowerCase() > b.artist.toLowerCase();
+	    		}
+	    	} else {
+	    		return a.origin.toLowerCase() < b.origin.toLowerCase();
+	    	}
+	    });
+	}
+
+	generateSongsFromJSONData(jsonData, maxPageSize) {
+		$(this.alertDivSelector).text("🥁 Rendering JSON data...");
 	    var reasonable;
 	    if (maxPageSize < 0) {
 	    	reasonable = jsonData;
@@ -83,35 +103,26 @@ class FinallyFrontend {
 	        songs.push(song);
 	    }
 
-	    $(this.alertDivSelector).text("🥁 Sorting " + reasonable.length + " songs...");
-	    var sortedSongs = songs.sort(function(a, b) {
-	    	if (a.origin == null) {
-	    		return b;
-	    	} else if (b.origin == null) {
-	    		return a;
-	    	} else if (a.origin === b.origin) {
-	    		if (a.artist == null) {
-	    			return b;
-	    		} else if (b.artist == null) {
-	    			return a;
-	    		} else {
-	    			return a.artist.toLowerCase() > b.artist.toLowerCase();
-	    		}
-	    	} else {
-	    		return a.origin.toLowerCase() < b.origin.toLowerCase();
-	    	}
-	    });;
+	    return songs;
+	}
+
+	generateDivsFromSongs(songs) {
+	    // $(this.alertDivSelector).text("🥁 Sorting " + reasonable.length + " songs...");
+	    // var sortedSongs = self.sortedSongList(songs);
 
 	    $(this.alertDivSelector).text("🥁 Generating graphics, then we're done");
 	    var generatedDivs = [];
-	    for (var i = 0; i < sortedSongs.length; i++) {
-	    	generatedDivs.push(sortedSongs[i].generateDiv());
+	    for (var i = 0; i < songs.length; i++) {
+	    	generatedDivs.push(songs[i].generateDiv());
 	    }
 
+	    return generatedDivs;
+	}
+
+	renderDivs(renderableDivs) {
 	    $(this.parentDivSelector).empty();
-	    for (var i = 0; i < generatedDivs.length; i++) {
-	    	console.log("appending index " + i);
-	        $(this.parentDivSelector).append(generatedDivs[i]);
+	    for (var i = 0; i < renderableDivs.length; i++) {
+	        $(this.parentDivSelector).append(renderableDivs[i]);
 	    }
 	}
 }
