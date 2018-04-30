@@ -1,4 +1,8 @@
 /* Requires finally.js */
+var finally_loadedSongs = [];
+var finally_currentIndex = -1;
+var finally_defaultPageSize = 100;
+
 function loadFinally() {
     $("#alert").text("🥁 Welcome!");
 
@@ -6,27 +10,23 @@ function loadFinally() {
     backend.ajaxLoadJSONImportedData(function(importedData){
         var frontend = new FinallyFrontend("#alert", "body");
         var frontendData = frontend.generateSongsFromJSONData(importedData, -1);
-        renderFinally(frontendData);
+		renderFinally(frontendData);
     });
 }
 
 function renderFinally(data) {
-    $("body").empty();
-    $("body").append('<div id="songs-table"></div>');
+    $("#loading").remove();
+    $("#alert").text("🥁");
+	$("body").append('<div id="back-button">Back</div>');
+	$("body").append('<div id="page-indicator"></div>');
+    $("body").append('<div id="next-button">Next</div>');
 
-    var tabulatorSongs = generateTabulatorDataFromSongs(data);
-    $("#songs-table").tabulator({
-		layout:"fitColumns",
-    	data: tabulatorSongs,
-	    columns:[
-	        {title:"name", field:"name"},
-	        {title:"artist", field:"artist"},
-	        {title:"album", field:"album"},
-	        {title:"origin", field:"origin"},
-	        {title:"duration", field:"duration", sorter:"number"},
-	    ],
-	});
+    finally_loadedSongs = generateTabulatorDataFromSongs(data);
+    finally_currentIndex = 0;
+    renderFinallySongs(finally_currentIndex, finally_defaultPageSize);
 }
+
+//
 
 function generateTabulatorDataFromSongs(songsData) {
 	var tabulatorSongs = [];
@@ -48,3 +48,46 @@ function generateTabulatorDictFromSong(song, i) {
 	tabulatorDict["origin"] = song.origin;
 	return tabulatorDict;
 }
+
+// 
+
+function renderFinallySongs(beginIndex, pageSize) {
+	$("#page-indicator").text(beginIndex);
+	$("#songs-table").remove();
+    $("body").append('<div id="songs-table"></div>');
+
+	var slicedSongs = finally_loadedSongs.slice(beginIndex, pageSize);
+    $("#songs-table").tabulator({
+		layout:"fitColumns",
+    	data: slicedSongs,
+	    columns:[
+	        {title:"name", field:"name"},
+	        {title:"artist", field:"artist"},
+	        {title:"album", field:"album"},
+	        {title:"origin", field:"origin"},
+	        {title:"duration", field:"duration", sorter:"number"},
+	    ],
+	});
+}
+
+$("body").on("click", "#back-button",  function(e) {
+	e.preventDefault();
+	finally_currentIndex = finally_currentIndex - finally_defaultPageSize;
+
+	if (finally_currentIndex >= 0) {
+		renderFinallySongs(finally_currentIndex, finally_currentIndex+finally_defaultPageSize);
+	} else {
+		finally_currentIndex = -1;
+	}
+});
+
+$("body").on("click", "#next-button",  function(e) {
+	e.preventDefault();
+	finally_currentIndex = finally_currentIndex + finally_defaultPageSize;
+
+	if (finally_currentIndex < finally_loadedSongs.length) {
+		renderFinallySongs(finally_currentIndex, finally_currentIndex+finally_defaultPageSize);
+	} else {
+		finally_currentIndex = finally_loadedSongs.length;
+	}
+});
