@@ -23,13 +23,19 @@ curl -X "GET" "https://api.spotify.com/v1/me/tracks" -H "Accept: application/jso
 
 ### Run
 
-To run finally, which will allow you to import, aggregate, and export all of your music libraries, run `python finally/finally_flask.py` or `make`. Have fun! :drum: 
+To run finally, which will allow you to import, aggregate, and export all of your music libraries...
 
+- `python finally/finally_flask.py` 
+- or `make`
+
+You may need to install the dependencies at `make deps`. Have fun! :drum: 
 
 ## Built with
 
-- Python
-- [Flask](https://github.com/pallets/flask)
+- [python/cpython](https://github.com/python/cpython)
+- [pallets/flask](https://github.com/pallets/flask)
+- [ishikawa/python-plist-parser](https://github.com/ishikawa/python-plist-parser)
+- https://gist.github.com/seanh/93666
 
 ## License
 
