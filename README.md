@@ -34,9 +34,10 @@ You may need to install the dependencies at `make deps`. Have fun! :drum:
 
 - [python/cpython](https://github.com/python/cpython)
 - [pallets/flask](https://github.com/pallets/flask)
+- [jquery/jquery](https://github.com/jquery/jquery)
+- [olifolkerd/tabulator](https://github.com/olifolkerd/tabulator)
 - [ishikawa/python-plist-parser](https://github.com/ishikawa/python-plist-parser)
 - https://gist.github.com/seanh/93666
-- https://github.com/javve/list.js
 
 ## License
 
