@@ -1,13 +1,53 @@
 
 class FinallySong {
-    constructor(origin, name, identifier) {
+    constructor(origin, name, artist, album, duration) {
         this.origin = origin;
         this.name = name;
-        this.identifier = identifier;
+        this.artist = artist;
+        this.album = album;
+        this.duration = duration;
+    }
+
+    formattedDuration() {
+    	var totalMinutes = (this.duration / 1000.0) / 60.0;
+    	var wholeNumberMinutes = parseInt(totalMinutes);
+    	var remainderMinutes = totalMinutes - wholeNumberMinutes;
+    	var seconds = remainderMinutes * 60.0;
+    	var wholeNumberSeconds = parseInt(seconds);
+
+    	var minutesString = "";
+    	if (wholeNumberMinutes < 10) {
+    		minutesString = "0" + wholeNumberMinutes;
+    	} else {
+    		minutesString = wholeNumberMinutes;
+    	}
+
+    	var secondsString = "";
+    	if (wholeNumberSeconds < 10) {
+    		secondsString = "0" + wholeNumberSeconds;
+    	} else {
+    		secondsString = wholeNumberSeconds;
+    	}
+
+    	return minutesString + ":" + secondsString;
     }
 
     generateDiv() {
-        return "<div class='song'><div class='song-origin'>" + this.origin + "</div><div class='song-name'>" + this.name + "</div></div>";
+    	var originDiv;
+    	if (this.origin == "spotify") {
+			originDiv = "<img class='song-origin' id='spotify' src='static/spotify.jpg' />";
+    	} else if (this.origin == "itunes") {
+			originDiv = "<img class='song-origin' id='itunes' src='static/itunes.png' />";
+    	} else {
+    		originDiv = "<img class='song-origin' id='unknown' src='static/drum.png' />";
+    	}
+
+    	var nameDiv = "<div class='song-name'>" + this.name + "</div>";
+    	var artistDiv = "<div class='song-artist'>" + this.artist + "</div>";
+    	var albumDiv = "<div class='song-album'>" + this.album + "</div>";
+    	var durationDiv = "<div class='song-duration'>" + this.formattedDuration() + "</div>";
+    	var combinedDiv = originDiv + nameDiv + artistDiv + albumDiv + durationDiv;
+        return "<div class='song'>" + combinedDiv + "</div>";
     }
 }
 
@@ -17,9 +57,14 @@ class FinallyFrontend {
 		this.parentDivSelector = parentDivSelector;
 	}
 
-	renderFinallyData(jsonData) {
+	renderFinallyData(jsonData, maxPageSize) {
 	    $(this.alertDivSelector).text("🥁 Rendering JSON data...");
-	    var reasonable = jsonData.slice(0, 5);
+	    var reasonable;
+	    if (maxPageSize < 0) {
+	    	reasonable = jsonData;
+	    } else {
+	    	reasonable = jsonData.slice(0, maxPageSize);
+	    }
 	    var songs = [];
 	    for (var i = 0; i < reasonable.length; i++) {
 	        $(this.alertDivSelector).text("🥁 Rendering song " + i + "/" + reasonable.length);
@@ -32,26 +77,41 @@ class FinallyFrontend {
 	        }
 
 	        var originId = songParsedJSON.origin.identifier;
-	        var metadata = $.parseJSON(songParsedJSON.metadata);
-	        var song;
-	        if (originId == "spotify") {
-	            song = new FinallySong(originId, metadata.name, metadata.id);
-	        } else {
-	            song = new FinallySong(originId, metadata["Name"], metadata["Track ID"]);
-	        }
+	        var metadata = songParsedJSON.finallyMetadata;
+	        var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
 
 	        songs.push(song);
 	    }
 
-	    $(this.alertDivSelector).text("🥁 Sorting, then see ya!");
+	    $(this.alertDivSelector).text("🥁 Sorting " + reasonable.length + " songs...");
 	    var sortedSongs = songs.sort(function(a, b) {
-	        return b.name-a.name;
+	    	if (a.origin == null) {
+	    		return b;
+	    	} else if (b.origin == null) {
+	    		return a;
+	    	} else if (a.origin === b.origin) {
+	    		if (a.artist == null) {
+	    			return b;
+	    		} else if (b.artist == null) {
+	    			return a;
+	    		} else {
+	    			return a.artist.toLowerCase() > b.artist.toLowerCase();
+	    		}
+	    	} else {
+	    		return a.origin.toLowerCase() < b.origin.toLowerCase();
+	    	}
 	    });;
 
-	    $(this.parentDivSelector).empty();
+	    $(this.alertDivSelector).text("🥁 Generating graphics, then we're done");
+	    var generatedDivs = [];
 	    for (var i = 0; i < sortedSongs.length; i++) {
-	        var div = sortedSongs[i].generateDiv();
-	        $(this.parentDivSelector).append(div);
+	    	generatedDivs.push(sortedSongs[i].generateDiv());
+	    }
+
+	    $(this.parentDivSelector).empty();
+	    for (var i = 0; i < generatedDivs.length; i++) {
+	    	console.log("appending index " + i);
+	        $(this.parentDivSelector).append(generatedDivs[i]);
 	    }
 	}
 }

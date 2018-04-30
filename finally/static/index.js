@@ -6,6 +6,6 @@ function loadFinally() {
     var backend = new FinallyBackend();
     backend.ajaxLoadJSONImportedData(function(importedData){
         var frontend = new FinallyFrontend("#alert", "body");
-        frontend.renderFinallyData(importedData);
+        frontend.renderFinallyData(importedData, -1);
     });
 }

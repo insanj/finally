@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from flask import Flask, jsonify, render_template
 from finally_parser import *
+from finally_storage import *
 from finally_storage_providers import *
 
 app = Flask(__name__)
@@ -21,6 +22,12 @@ def run():
 		for song in songsInFile:
 			songs.append(song)
 		
+	storage = FinallyStorage()
+	for song in songs:
+		storage.storeSong(song)
+
+	storage.save()
+	
 	jsonSongs = FinallyStorageJSONProvider.convertToJSONArray(songs)
 	return jsonify(jsonSongs)
 
