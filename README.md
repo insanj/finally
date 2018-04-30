@@ -6,6 +6,11 @@
 
 ## Usage
 
+<p align="center">
+   <img src="/example1.png" width=45% height=auto />
+   <img src="/example2.png" width=45% height=auto >
+</p>
+
 ### Import
 
 #### 🎵 iTunes
@@ -20,9 +25,6 @@ Take the output of that response and drag it into the `imports` directory. You c
 ```bash
 curl -X "GET" "https://api.spotify.com/v1/me/tracks" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer <TOKEN>" >> finally/imports/spotify_library.json
 ```
-
-![](example1.png)
-![](example2.png)
 
 ### Run
 
