@@ -1,8 +1,9 @@
 #!/usr/bin/python
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 from finally_parser import *
 from finally_storage import *
 from finally_storage_providers import *
+from finally_importer_spotify import *
 
 app = Flask(__name__)
 
@@ -13,7 +14,7 @@ def index():
 @app.route("/run")
 def run():
 	importer = FinallyImporter()
-	files = importer.findImportableFiles()
+	files = importer.importFiles()
 	parser = FinallySongParser()
 	songs = []
 
@@ -35,3 +36,10 @@ def run():
 def load():
 	jsonData = open("exports/finally.json").read()
 	return jsonData
+
+@app.route("/spotify")
+def spotify():
+	oauthCode = request.args.get('code', default = '*', type = str)
+	print("\nspotify! args = " + str(request.args) + "\n\n code = " + str(oauthCode))
+	FinallyStorage.arbitrarySave("oauth", "oauth/spotify.txt", oauthCode)
+	return "Saved " + oauthCode
