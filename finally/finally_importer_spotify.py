@@ -3,6 +3,7 @@ import httplib, urllib
 import webbrowser
 import requests
 import time
+import base64
 import json
 from finally_importer import *
 
@@ -11,48 +12,50 @@ class FinallySubimporter:
 		raise ValueError("FinallySubimporter no-op must override importLibrary")	
 
 class FinallySpotifyImporter(FinallySubimporter):
-	oauthTokenPath = "oauth/spotify.txt"
-	authedImporter = None
-	unauthedImporter = None
+	oauthCodeFolderPath = None
+	oauthCodeFilePath = None
+
+	def __init__(self):
+		self.oauthCodeFolderPath = os.path.join(os.getcwd(), "oauth")
+		self.oauthCodeFilePath = os.path.join(self.oauthCodeFolderPath, "spotify.txt")
 
 	def importLibrary(self):
-		if self.authedImporter is None:
-			return self.attemptSpotifyOAuthAndRetryImport()
+		oauthCodeImporter = FinallySpotifyOAuthCodeImporter(self.oauthCodeFilePath)
+		oauthCode = oauthCodeImporter.importLibrary()
+
+		if oauthCode is None:
+			raise ValueError("FinallySpotifyOAuthCodeImporter failed to get oauthCode")
 		else:
-			authedLibrary = self.authedImporter.importLibrary()
-			if authedLibrary is None: # invalid token
-				self.deleteExistingOAuthToken()
-				return self.attemptSpotifyOAuthAndRetryImport()
+			print "\nFinallySpotifyLibraryImporter oauthCode = " + str(oauthCode)
 
-	def deleteExistingOAuthToken(self):
-		os.remove(self.oauthTokenPath)
+		oauthTokenImporter = FinallySpotifyOAuthTokenImporter(oauthCode)
+		oauthToken = oauthTokenImporter.importLibrary()
 
-	def attemptSpotifyOAuthAndRetryImport(self, oauthToken=None):
 		if oauthToken is None:
-			return self.getOAuthTokenAndRetry()
+			print "\nFinallySpotifyLibraryImporter deleting existing oauth code and trying again"
+			oauthCodeImporter.deleteExistingOAuthCode() # invalid code probs
+			return self.importLibrary() # gross
 		else:
-			self.authedImporter = FinallySpotifyAuthedImporter(oauthToken)
-			return self.importLibrary()
+			print "\nFinallySpotifyLibraryImporter oauthToken = " + str(oauthToken)
 
-	def getOAuthTokenAndRetry(self):
-		self.unauthedImporter = FinallySpotifyUnauthedImporter(self.oauthTokenPath)
-		oauthToken = self.unauthedImporter.importLibrary()
-		return self.attemptSpotifyOAuthAndRetryImport(oauthToken)
+		authedImporter = FinallySpotifyLibraryImporter(oauthToken)
+		authedLibrary = authedImporter.importLibrary()
 
-class FinallySpotifyUnauthedImporter(FinallySubimporter):
-	oauthTokenPath = None
+		if authedLibrary is None:
+			raise ValueError("FinallySpotifyLibraryImporter failed to get authedLibrary")
+		else:
+			print "\nFinallySpotifyLibraryImporter authedLibrary = " + str(authedLibrary)
 
-	def __init__(self, oauthTokenPath):
-		self.oauthTokenPath = oauthTokenPath
+		return authedLibrary
 
-	def sendSpotifyOAuthEndpoint(self):
-		spotifyURL = self.spotifyAPIURL()
-		spotifyEndpoint = self.spotifyEndpointPath()
-		spotifyParams = self.spotifyEndpointParams()
-		requestURLResponse = requests.get('https://'+spotifyURL+spotifyEndpoint, params=spotifyParams)
-		requestURL = requestURLResponse.url
-		print "\nOpening " + requestURL + "..."
-		webbrowser.open(requestURL, new=2)
+class FinallySpotifyOAuthCodeImporter(FinallySubimporter):
+	oauthCodePath = None
+
+	def __init__(self, oauthCodePath):
+		self.oauthCodePath = oauthCodePath
+
+	def deleteExistingOAuthCode(self):
+		os.remove(self.oauthCodePath)
 
 	def spotifyAPIURL(self):
 		return "accounts.spotify.com"
@@ -79,42 +82,115 @@ class FinallySpotifyUnauthedImporter(FinallySubimporter):
 		params = {"client_id" : self.spotifyOAuthClientID(), "response_type" : self.spotifyOAuthResponseType(), "redirect_uri" : self.spotifyOAuthRedirectURI(), "scope" : self.spotifyOAuthScope()}
 		return urllib.urlencode(params)
 
-	def getSavedOAuthToken(self):
-		tokenPathDir = self.oauthTokenPath.split(os.path.sep)[0]
-		oauthTokenImporter = FinallyImporter(tokenPathDir)
-		spotifyOAuthFilename = self.oauthTokenPath
-		if oauthTokenImporter.checkFileExists(spotifyOAuthFilename) is True:
-			contentsOfOAuthFile = oauthTokenImporter.getContentsOfFilePath(spotifyOAuthFilename)
-			print "\nRead contents of OAuth file = " + str(contentsOfOAuthFile)
-			return 
-		else:
-			return None
-
 	def importLibrary(self):
-		return self.attemptToImportLibrary(5)
+		return self.attemptToImportLibrary(3)
 
 	def attemptToImportLibrary(self, attempts):
-		savedToken = self.getSavedOAuthToken()
+		savedToken = self.getSavedOAuthCode()
+
 		if savedToken is None:
 			if attempts <= 0:
-				raise ValueError("No more attempts!")
+				raise ValueError("FinallySpotifyOAuthCodeImporter attemptToImportLibrary No more attempts!")
 			else:
-				self.sendSpotifyOAuthEndpoint()
-				time.sleep(5)
+				self.sendSpotifyOAuthCodeEndpoint()
+				time.sleep(2)
 				return self.attemptToImportLibrary(attempts-1)
 		else:
 			return savedToken
 
-class FinallySpotifyAuthedImporter(FinallySubimporter):
+	def getSavedOAuthCode(self):
+		try:
+			with open(self.oauthCodePath) as contents:
+				return contents.read()
+		except Exception, e:
+			print "\nFinallySpotifyOAuthCodeImporter getSavedOAuthCode except = " + str(e)
+			return None
+
+	def sendSpotifyOAuthCodeEndpoint(self):
+		spotifyURL = self.spotifyAPIURL()
+		spotifyEndpoint = self.spotifyEndpointPath()
+		spotifyParams = self.spotifyEndpointParams()
+		requestURLResponse = requests.get('https://'+spotifyURL+spotifyEndpoint, params=spotifyParams)
+		requestURL = requestURLResponse.url
+		print "\nOpening " + requestURL + "..."
+		webbrowser.open(requestURL, new=2)
+
+class FinallySpotifyOAuthTokenImporter(FinallySubimporter):
+	oauthCode = None
+
+	def __init__(self, oauthCode):
+		self.oauthCode = oauthCode
+
+	def spotifyAPIURL(self):
+		return "accounts.spotify.com"
+
+	def spotifyEndpointPath(self):
+		return "/api/token"
+
+	def spotifyTokenGrantType(self):
+		return "authorization_code"
+
+	def spotifyOAuthRedirectURI(self):
+		return "http://127.0.0.1:5000/spotify"
+
+	def spotifyBase64EncodedClientCreds(self):
+		return "MmJiZDhkZGQ1ODFkNDRlZWJiZDBkN2YwYTQyYzMzZDI6YjM3NGJhMTY4ZjFjNDNmYThkMjhkY2Q1MjY0Mzc2MjQ="
+
+	def spotifyOAuthClientID(self):
+		return "2bbd8ddd581d44eebbd0d7f0a42c33d2"
+
+	def spotifyOAuthClientSecret(self):
+		return "b374ba168f1c43fa8d28dcd526437624"
+
+	def spotifyEndpointHeaders(self):
+		authorizationHeaderString = "Basic " + self.spotifyBase64EncodedClientCreds()
+		return {"Content-Type" : "application/x-www-form-urlencoded"}
+
+	def spotifyEndpointParams(self):
+		params = {"grant_type" : self.spotifyTokenGrantType(), "code" : self.oauthCode, "redirect_uri" : self.spotifyOAuthRedirectURI(), "client_id" : self.spotifyOAuthClientID(), "client_secret" : self.spotifyOAuthClientSecret()}
+		return urllib.urlencode(params)
+
+	def importLibrary(self):
+		return self.sendSpotifyTokenEndpoint()
+
+	def sendSpotifyTokenEndpoint(self):
+		spotifyURL = self.spotifyAPIURL()
+		spotifyEndpoint = self.spotifyEndpointPath()
+		spotifyParams = self.spotifyEndpointParams()
+		spotifyHeaders = self.spotifyEndpointHeaders()
+
+		print "\nFinallySpotifyOAuthTokenImporter sendSpotifyTokenEndpoint Sending token endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " params = " + str(spotifyParams) + " headers = " + str(spotifyHeaders)
+
+		spotifyAPIConnection = httplib.HTTPSConnection(spotifyURL)
+		spotifyAPIConnection.request("POST", spotifyEndpoint, spotifyParams, spotifyHeaders)
+		spotifyAPIResponse = spotifyAPIConnection.getresponse()
+		print "\nspotifyAPIResponse =" + str(spotifyAPIResponse.status) + ", " + str(spotifyAPIResponse.reason)
+
+		spotifyData = spotifyAPIResponse.read()
+		spotifyAPIConnection.close()
+
+		print "\nFinallySpotifyOAuthTokenImporter sendSpotifyTokenEndpoint = " + str(spotifyData)
+		jsonLoad = json.loads(spotifyData)
+
+		try:
+			error = jsonLoad["error"]
+			print "\nToken request error = " + str(error)
+			return None
+		except Exception, e:
+			print "\nToken request has no JSON error"
+			try:
+				return jsonLoad["access_token"]
+			except Exception, e:
+				print "\nToken request has no access_token??"
+				return None
+
+class FinallySpotifyLibraryImporter(FinallySubimporter):
 	initialOffset = None
 	limit = None
-	authToken = None
+	oauthToken = None
 
-	def __init__(self, authToken, initialOffset=0, limit=50):
-		if authToken is None:
-			raise ValueError("FinallySpotifyImporter requires authToken")
-
-		self.authToken = authToken
+	def __init__(self, oauthToken, initialOffset=0, limit=50):
+		self.oauthToken = oauthToken
 		self.initialOffset = initialOffset
 		self.limit = limit
 
@@ -125,7 +201,7 @@ class FinallySpotifyAuthedImporter(FinallySubimporter):
 		return "/v1/me/tracks/"
 
 	def spotifyEndpointHeaders(self):
-		authHeaderValue = "Bearer " + self.authToken
+		authHeaderValue = "Bearer " + self.oauthToken
 		return {"Accept" : "application/json", "Content-Type" : "application/json", "Authorization" : authHeaderValue}
 
 	def spotifyEndpointParams(self, offset):
@@ -138,24 +214,24 @@ class FinallySpotifyAuthedImporter(FinallySubimporter):
 		spotifyParams = self.spotifyEndpointParams(offset)
 		spotifyHeaders = self.spotifyEndpointHeaders()
 
-		print "\nSending tracks endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " params = " + str(spotifyParams) + " headers = " + str(spotifyHeaders)
+		print "\nFinallySpotifyLibraryImporter Sending tracks endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " params = " + str(spotifyParams) + " headers = " + str(spotifyHeaders)
 
 		spotifyAPIConnection = httplib.HTTPSConnection(spotifyURL)
 		spotifyAPIConnection.request("GET", spotifyEndpoint, {}, spotifyHeaders)
 		spotifyAPIResponse = spotifyAPIConnection.getresponse()
 		spotifyData = spotifyAPIResponse.read()
+		spotifyAPIConnection.close()
 
 		jsonLoad = json.loads(spotifyData)
+		print "\nFinallySpotifyLibraryImporter sendSpotifyTracksEndpoint jsonLoad = " + str(jsonLoad)
 		try:
 			error = jsonLoad["error"]["status"]
-			print "\nExisting OAuth token " + str(self.authToken) + " invalid, trying to get a new one... error = " + str(error)
 			return None
 		except Exception, e:
 			return spotifyData
 
 	def importLibrary(self):
 		return self.sendSpotifyTracksEndpoint(self.initialOffset)
-
 
 if __name__ == "__main__":
 	i = FinallySpotifyImporter()

@@ -4,6 +4,7 @@ from finally_parser import *
 from finally_storage import *
 from finally_storage_providers import *
 from finally_importer_spotify import *
+from finally_main import *
 
 app = Flask(__name__)
 
@@ -13,22 +14,7 @@ def index():
 
 @app.route("/run")
 def run():
-	importer = FinallyImporter()
-	files = importer.importFiles()
-	parser = FinallySongParser()
-	songs = []
-
-	for file in files:
-		songsInFile = parser.parseFileIntoSongs(file)
-		for song in songsInFile:
-			songs.append(song)
-		
-	storage = FinallyStorage()
-	for song in songs:
-		storage.storeSong(song)
-
-	storage.save()
-	
+	songs = Finally().main()
 	jsonSongs = FinallyStorageJSONProvider.convertToJSONArray(songs)
 	return jsonify(jsonSongs)
 

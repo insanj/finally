@@ -72,7 +72,7 @@ class FinallyFrontend {
 	    			return a.artist.toLowerCase() > b.artist.toLowerCase();
 	    		}
 	    	} else {
-	    		return a.origin.toLowerCase() < b.origin.toLowerCase();
+	    		return a.origin.toLowerCase() > b.origin.toLowerCase();
 	    	}
 	    });
 	}
@@ -97,10 +97,13 @@ class FinallyFrontend {
 	        }
 
 	        var originId = songParsedJSON.origin.identifier;
-	        var metadata = songParsedJSON.finallyMetadata;
-	        var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
+	        if (originId == "spotify") {
+		        var metadata = songParsedJSON.finallyMetadata;
+		        var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
 
-	        songs.push(song);
+		        songs.push(song);
+	        }
+
 	    }
 
 	    return songs;
