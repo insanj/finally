@@ -7,7 +7,9 @@ function loadFinally() {
     $("#alert").text("🥁 Welcome!");
 
     var backend = new FinallyBackend();
-    backend.ajaxLoadJSONImportedData(function(importedData){
+    // ajaxRunJSONImport
+    // ajaxLoadJSONImportedData
+    backend.ajaxRunJSONImport(function(importedData){
         var frontend = new FinallyFrontend("#alert", "body");
         var frontendData = frontend.generateSongsFromJSONData(importedData, -1);
 		renderFinally(frontendData);

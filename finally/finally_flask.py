@@ -28,4 +28,5 @@ def spotify():
 	oauthCode = request.args.get('code', default = '*', type = str)
 	print("\nspotify! args = " + str(request.args) + "\n\n code = " + str(oauthCode))
 	FinallyStorage.arbitrarySave("oauth", "oauth/spotify.txt", oauthCode)
-	return "Saved " + oauthCode
+	closeItselfDocument = "<html><body><script>window.close();</script></body></html>"
+	return closeItselfDocument
