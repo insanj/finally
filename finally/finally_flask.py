@@ -1,5 +1,6 @@
 #!/usr/bin/python
 from flask import Flask, jsonify, render_template, request
+import os
 from finally_parser import *
 from finally_storage import *
 from finally_storage_providers import *
@@ -20,8 +21,12 @@ def run():
 
 @app.route("/load")
 def load():
-	jsonData = open("exports/finally.json").read()
-	return jsonData
+	finallyLoadPath = "exports/finally.json"
+	if not os.path.exists(finallyLoadPath):
+		return jsonify({"error" : {"status" : "404", "message" : "Finally JSON library file not found, " + finallyLoadPath}});
+	else:
+		jsonData = open(finallyLoadPath).read()
+		return jsonData
 
 @app.route("/spotify")
 def spotify():
