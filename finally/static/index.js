@@ -3,14 +3,30 @@ var finally_loadedSongs = [];
 var finally_currentIndex = -1;
 var finally_defaultPageSize = 100;
 
+function runAndLoadFinally() {
+    $("#alert").text("🥁 Welcome!");
+
+    var backend = new FinallyBackend();
+    backend.ajaxRunJSONImport(function(importedData) {
+        var frontend = new FinallyFrontend("#alert", "body");
+        var frontendData = frontend.generateSongsFromJSONData(importedData, -1);
+		renderFinally(frontendData);
+    });
+}
+
 function loadFinally() {
     $("#alert").text("🥁 Welcome!");
 
     var backend = new FinallyBackend();
-    backend.ajaxLoadJSONImportedData(function(importedData){
-        var frontend = new FinallyFrontend("#alert", "body");
-        var frontendData = frontend.generateSongsFromJSONData(importedData, -1);
-		renderFinally(frontendData);
+    backend.ajaxLoadJSONImportedData(function(importedData) {
+    	if (importedData.hasOwnProperty("error")) {
+    		console.log("🤨 No Finally JSON library file found? Running from scratch... " + importedData);
+    		runAndLoadFinally();
+    	} else {
+    		var frontend = new FinallyFrontend("#alert", "body");
+        	var frontendData = frontend.generateSongsFromJSONData(importedData, -1);
+			renderFinally(frontendData);
+    	}
     });
 }
 
