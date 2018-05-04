@@ -3,10 +3,21 @@ import json
 import glob
 import os
 from finally_file import FinallyFile
+from finally_importer_spotify import *
 
 class FinallyImporter:
+	subimporters = None
+	path = None
+
 	def __init__(self, path="imports"):
 		self.path = os.path.join(os.getcwd(), path)
+		self.subimporters = []
+
+	def checkDirectoryExists(self, dirPath):
+		return os.path.exists(dirPath)
+
+	def checkFileExists(self, filePath):
+		return os.path.exists(filePath) and os.path.isfile(filePath)
 
 	def getContentsOfFilePath(self, filePath):
 		relativeFilePath = filePath
@@ -17,7 +28,7 @@ class FinallyImporter:
 		globPath = os.path.join(self.path, "*")
 		return glob.glob(globPath)
 	
-	def findImportableFiles(self):
+	def importFiles(self):
 		filePaths = self.findImportableFilePaths()
 		importedFiles = []
 		for filePath in filePaths:
