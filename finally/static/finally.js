@@ -97,7 +97,7 @@ class FinallyFrontend {
 	        }
 
 	        var originId = songParsedJSON.origin.identifier;
-	        if (originId == "spotify") {
+	        if (originId == "spotify") { ///// TODO QQQ
 		        var metadata = songParsedJSON.finallyMetadata;
 		        var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
 

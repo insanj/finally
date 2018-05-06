@@ -15,7 +15,8 @@ def index():
 
 @app.route("/run")
 def run():
-	finallyInstance = Finally()
+	finallyConfig = FinallyConfig(True, True, True, True)
+	finallyInstance = Finally(finallyConfig)
 	songs = finallyInstance.main()
 	jsonSongs = FinallyStorageJSONProvider.convertToJSONArray(songs)
 	return jsonify(jsonSongs)

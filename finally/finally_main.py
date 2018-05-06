@@ -72,15 +72,17 @@ class Finally:
 		if self.config.importFromOffline is True:
 			offlineSongs = self.offlineImportSongs()
 			songs = self.combineTwoArrays(songs, offlineSongs)
+			self.debugPrint("Done importing offline files! Songs grew by " + str(len(offlineSongs)))
 
 		if self.config.importFromOnline is True:
 			onlineSongs = self.onlineImportSongs()
 			songs = self.combineTwoArrays(songs, onlineSongs)
+			self.debugPrint("Done importing online files! Songs grew by " + str(len(onlineSongs)))
 
 		if self.config.exportFinallyLibrary is True:
 			self.offlineExportSongs(songs)
 
-		self.debugPrint("Finished exporting into both JSON and sqlite!")
+		self.debugPrint("Finished importing and exporting " + str(len(offlineSongs)) + " offline songs, " + str(len(onlineSongs)) + " online songs, for a total of " + str(len(songs)) + " songs!")
 		return songs
 
 if __name__ == "__main__":
