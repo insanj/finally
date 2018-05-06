@@ -44,7 +44,7 @@ class FinallySpotifyImporter(FinallySubimporter):
 		if authedLibrary is None:
 			raise ValueError("FinallySpotifyLibraryImporter failed to get authedLibrary")
 		else:
-			print "\nFinallySpotifyLibraryImporter authedLibrary = " + str(authedLibrary)
+			print "\nFinallySpotifyLibraryImporter authedLibrary complete!"
 
 		return authedLibrary
 
@@ -188,11 +188,13 @@ class FinallySpotifyLibraryImporter(FinallySubimporter):
 	initialOffset = None
 	limit = None
 	oauthToken = None
+	attemptToRecurse = None
 
-	def __init__(self, oauthToken, initialOffset=0, limit=50):
+	def __init__(self, oauthToken, initialOffset=0, limit=50, attemptToRecurse=True):
 		self.oauthToken = oauthToken
 		self.initialOffset = initialOffset
 		self.limit = limit
+		self.attemptToRecurse = attemptToRecurse
 
 	def spotifyAPIURL(self):
 		return "api.spotify.com"
@@ -204,34 +206,75 @@ class FinallySpotifyLibraryImporter(FinallySubimporter):
 		authHeaderValue = "Bearer " + self.oauthToken
 		return {"Accept" : "application/json", "Content-Type" : "application/json", "Authorization" : authHeaderValue}
 
-	def spotifyEndpointParams(self, offset):
-		params = {"limit" : self.limit, "offset" : offset}
-		return urllib.urlencode(params)
-
-	def sendSpotifyTracksEndpoint(self, offset):
-		spotifyURL = self.spotifyAPIURL()
-		spotifyEndpoint = self.spotifyEndpointPath()
-		spotifyParams = self.spotifyEndpointParams(offset)
-		spotifyHeaders = self.spotifyEndpointHeaders()
-
-		print "\nFinallySpotifyLibraryImporter Sending tracks endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " params = " + str(spotifyParams) + " headers = " + str(spotifyHeaders)
-
-		spotifyAPIConnection = httplib.HTTPSConnection(spotifyURL)
-		spotifyAPIConnection.request("GET", spotifyEndpoint, {}, spotifyHeaders)
+	def singleSendSpotifyTracksEndpoint(self, u, e, h):
+		spotifyAPIConnection = httplib.HTTPSConnection(u)
+		spotifyAPIConnection.request("GET", e, {}, h)
 		spotifyAPIResponse = spotifyAPIConnection.getresponse()
 		spotifyData = spotifyAPIResponse.read()
 		spotifyAPIConnection.close()
 
 		jsonLoad = json.loads(spotifyData)
-		print "\nFinallySpotifyLibraryImporter sendSpotifyTracksEndpoint jsonLoad = " + str(jsonLoad)
+		print "\nFinallySpotifyLibraryImporter singleSendSpotifyTracksEndpoint done = " + str(len(jsonLoad))
 		try:
 			error = jsonLoad["error"]["status"]
 			return None
 		except Exception, e:
-			return spotifyData
+			return jsonLoad
+
+	def sendSpotifyTracksEndpoint(self):
+		spotifyURL = self.spotifyAPIURL()
+		spotifyEndpoint = self.spotifyEndpointPath()
+		spotifyHeaders = self.spotifyEndpointHeaders()
+
+		print "\nFinallySpotifyLibraryImporter Sending tracks endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " headers = " + str(spotifyHeaders)
+		return self.singleSendSpotifyTracksEndpoint(spotifyURL, spotifyEndpoint, spotifyHeaders)
+
+	def recursivelySendSpotifyTracksEndpoint(self):
+		spotifyURL = self.spotifyAPIURL()
+		spotifyEndpoint = self.spotifyEndpointPath()
+		spotifyHeaders = self.spotifyEndpointHeaders()
+
+		print "\nFinallySpotifyLibraryImporter Sending tracks endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " headers = " + str(spotifyHeaders)
+		jsonResponse = self.singleSendSpotifyTracksEndpoint(spotifyURL, spotifyEndpoint, spotifyHeaders)
+
+		reparsed = json.loads(jsonResponse)
+		if reparsed is not None:
+			try:
+				nextURL = reparsed["next"]
+				print "\nFinallySpotifyLibraryImporter found next URL = " + str(nextURL)
+				return recursivelySendSpotifyTracksWithNextURL(nextURL)
+			except Exception, e:
+				print "\nFinallySpotifyLibraryImporter NO NEXT URL FOUND in = " + str(reparsed)  
+				return reparsed
+
+		return jsonResponse
+
+	def recursivelySendSpotifyTracksWithNextURL(self, url):
+		print "\nFinallySpotifyLibraryImporter next tracks endpoint w spotifyURL = " + str(url)
+		spotifyHeaders = self.spotifyEndpointHeaders()
+		jsonResponse = self.singleSendSpotifyTracksEndpoint(url, {}, spotifyHeaders)
+
+		if jsonResponse is not None:
+			try:
+				nextURL = jsonResponse["next"]
+				print "\nFinallySpotifyLibraryImporter found next next URL = " + str(nextURL)
+				return recursivelySendSpotifyTracksWithNextURL(nextURL)
+			except Exception, e:
+				print "\nFinallySpotifyLibraryImporter NO NEXT next URL FOUND"
+				return jsonResponse
+
+		return jsonResponse
 
 	def importLibrary(self):
-		return self.sendSpotifyTracksEndpoint(self.initialOffset)
+		print "\nFinallySpotifyLibraryImporter beginning import, attemptToRecurse = " + str(self.attemptToRecurse)
+
+		parsedJSONResponse = None
+		if self.attemptToRecurse is True:
+			parsedJSONResponse = self.recursivelySendSpotifyTracksEndpoint()
+		else:
+			parsedJSONResponse = self.sendSpotifyTracksEndpoint()
+
+		return json.dumps(parsedJSONResponse)
 
 if __name__ == "__main__":
 	i = FinallySpotifyImporter()

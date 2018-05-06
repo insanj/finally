@@ -34,7 +34,10 @@ class FinallySongParser:
 		return parsedSong
 
 	def parseSpotifyFileIntoSongs(self, file):
-		jsonDump = json.loads(file.contents)
+		jsonDump = file.contents
+		if isinstance(jsonDump, str):
+			jsonDump = json.loads(jsonDump)
+
 		jsonTracks = jsonDump["items"]
 		parsedSongs = []
 		for track in jsonTracks:

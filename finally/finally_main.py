@@ -5,35 +5,82 @@ from finally_importer import *
 from finally_storage_providers import *
 from finally_importer_spotify import *
 
+class FinallyConfig:
+	debugPrinting = None
+	importFromOnline = None
+	importFromOffline = None
+	exportFinallyLibrary = None
+
+	def __init__(self, importFromOnline=True, importFromOffline=True, debugPrinting=True, exportFinallyLibrary=True):
+		self.importFromOnline = importFromOnline
+		self.importFromOffline = importFromOffline
+		self.debugPrinting = debugPrinting
+		self.exportFinallyLibrary = exportFinallyLibrary
+
 class Finally:
-	def main(self):
-		print "[Finally] Starting up! Finding importable files..."
+	config = None
+	parser = None
+
+	def __init__(self, config=FinallyConfig()):
+		self.config = config
+		self.parser = FinallySongParser()
+
+	def debugPrint(self, string):
+		if self.config.debugPrinting is True:
+			print "[Finally] " + string
+
+	def combineTwoArrays(self, one, two):
+		three = one
+		for e in two:
+			three.append(e)
+		return three
+
+	def offlineImportSongs(self):
 		importer = FinallyImporter()
 		files = importer.importFiles()
-		parser = FinallySongParser()
-		songs = []
-		print "[Finally] Parsing "+str(len(files))+" files in imports directory..."
-		for file in files:
-			songsInFile = parser.parseFileIntoSongs(file)
-			for song in songsInFile:
-				songs.append(song)
+		self.debugPrint("OFFLINE Parsing "+str(len(files))+" files in imports directory...")
 
+		songs = []
+		for file in files:
+			songsInFile = self.parser.parseFileIntoSongs(file)
+			songs = self.combineTwoArrays(songs, songsInFile)
+
+		return songs
+
+	def onlineImportSongs(self):
+		self.debugPrint("ONLINE importing...")
 		spotifyImporter = FinallySpotifyImporter()
 		spotifyLibrary = spotifyImporter.importLibrary()
+
 		spotifyLibraryFile = FinallyFile("online", spotifyLibrary)
-		parsedSpotifyLibrarySongs = parser.parseSpotifyFileIntoSongs(spotifyLibraryFile)
+		parsedSpotifyLibrarySongs = self.parser.parseSpotifyFileIntoSongs(spotifyLibraryFile)
 
-		for song in parsedSpotifyLibrarySongs:
-			songs.append(song)
+		return parsedSpotifyLibrarySongs
 
-		print "[Finally] Aggregating "+str(len(songs))+" songs together and exporting..."
+	def offlineExportSongs(self, songs):
+		self.debugPrint("Aggregating "+str(len(songs))+" songs together and exporting...")
 		storage = FinallyStorage()
 		for song in songs:
 			storage.storeSong(song)
 
 		storage.save()
-		print "[Finally] Finished exporting into both JSON and sqlite!"
 
+	def main(self):
+		self.debugPrint("Starting up! Finding importable files...")
+		songs = []
+
+		if self.config.importFromOffline is True:
+			offlineSongs = self.offlineImportSongs()
+			songs = self.combineTwoArrays(songs, offlineSongs)
+
+		if self.config.importFromOnline is True:
+			onlineSongs = self.onlineImportSongs()
+			songs = self.combineTwoArrays(songs, onlineSongs)
+
+		if self.config.exportFinallyLibrary is True:
+			self.offlineExportSongs(songs)
+
+		self.debugPrint("Finished exporting into both JSON and sqlite!")
 		return songs
 
 if __name__ == "__main__":
