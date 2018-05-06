@@ -31,17 +31,22 @@ function loadFinally() {
 }
 
 function generateHeaderDivString() {
+	var headerButtonTray = '<div id="button-tray">';
+	headerButtonTray += '<div id="back-button">Back</div>';
+	headerButtonTray += '<div id="page-indicator"></div>';
+	headerButtonTray += '<div id="next-button">Next</div>';
+	headerButtonTray += "</div>";
+
 	var headerString = '<div id="header">';
-	headerString += '<div id="back-button">Back</div>';
-	headerString += '<div id="page-indicator"></div>';
-	headerString += '<div id="next-button">Next</div>';
+	headerString += "<div id='header-body'></div>";
+	headerString += headerButtonTray;
 	headerString += "</div>";
 	return headerString;
 }
 
 function renderFinally(data) {
     $("#loading").remove();
-    $("#alert").text("🥁");
+    $("#alert").text("");
 
 	var headerDivString = generateHeaderDivString();
     $("body").append(headerDivString);
@@ -49,18 +54,13 @@ function renderFinally(data) {
     finally_loadedSongs = generateTabulatorDataFromSongs(data);
     finally_currentIndex = 0;
     renderFinallySongs(finally_currentIndex, finally_defaultPageSize);
-    renderFinallyLibraryMetadata(finally_loadedSongs, "header");
+    renderFinallyLibraryMetadata(finally_loadedSongs, "header-body");
 }
 
 //
 
 function generateTabulatorDataFromSongs(songsData) {
-	var tabulatorSongs = [];
-	for (var i = 0; i < songsData.length; i++) {
-    	var tabulatorConvertedSong = generateTabulatorDictFromSong(songsData[i], i);
-    	tabulatorSongs.push(tabulatorConvertedSong);
-    }
-
+	var tabulatorSongs = songsData.map((v, i, a) => generateTabulatorDictFromSong(v, i));
 	return tabulatorSongs;
 }
 
@@ -81,6 +81,7 @@ function generateTabulatorDictFromSong(song, i) {
 function renderFinallyLibraryMetadata(metadataSongs, parentDivID) {
 	var generatedDivs = createFinallyLibraryMetadataDivs(metadataSongs);
 	var parentDivIDHash = "#"+parentDivID;
+	$(parentDivIDHash).append("<div id='masthead'>🥁<br/>finally library</div>");
 	for (var i = 0; i < generatedDivs.length; i++) {
 		var g = generatedDivs[i];
 		$(parentDivIDHash).append(g);
@@ -91,15 +92,23 @@ function createFinallyLibraryMetadataDivs(metadataSongs) {
 	var finallyTotalSongs = metadataSongs.length;
 	var totalSongsDiv = generateFinallyLibraryMetadataDiv({"id" : "total-songs"}, "Total Songs: " + finallyTotalSongs);
 
-	var finallyTotalArtists;
-	
-	var finallyTotalAlbums;
-	var finallyTotalDuration;
-	var finallyTotalSpotifySongs;
-	var finallyTotaliTunesSongs;
-	var finallyTotalSongs;
+	var finallyOnlyArtists = metadataSongs.map(a => a.artist);
+	var finallyTotalArtists = finallyOnlyArtists.filter((v, i, a) => a.indexOf(v) === i).length; 
+	var finallyTotalArtistsDiv = generateFinallyLibraryMetadataDiv({"id" : "total-artists"}, "Total Artists: " + finallyTotalArtists);
 
-	var generatedDivs = [totalSongsDiv];
+	var finallyOnlyAlbums = metadataSongs.map(a => a.album);
+	var finallyTotalAlbums = finallyOnlyAlbums.filter((v, i, a) => a.indexOf(v) === i).length; 
+	var finallyTotalAlbumsDiv = generateFinallyLibraryMetadataDiv({"id" : "total-albums"}, "Total Albums: " + finallyTotalAlbums);
+
+	var finallyTotalDuration;
+
+	var finallyTotalSpotifySongs = metadataSongs.filter(a => a.origin == "spotify").length;
+	var finallyTotalSpotifySongsDiv = generateFinallyLibraryMetadataDiv({"id" : "spotify-songs"}, "Spotify Songs: " + finallyTotalSpotifySongs);
+
+	var finallyTotaliTunesSongs = metadataSongs.filter(a => a.origin == "itunes").length;
+	var finallyTotaliTunesSongsDiv = generateFinallyLibraryMetadataDiv({"id" : "itunes-songs"}, "iTunes Songs: " + finallyTotaliTunesSongs);
+
+	var generatedDivs = [totalSongsDiv, finallyTotalArtistsDiv, finallyTotalAlbumsDiv, finallyTotalSpotifySongsDiv, finallyTotaliTunesSongsDiv];
 	return generatedDivs;
 }
 
@@ -120,9 +129,13 @@ function generateFinallyLibraryMetadataDiv(elementInfo, elementContents) {
 //
 
 function renderFinallySongs(beginIndex, pageSize) {
+	var bodyParentDivID = "finally-body";
+	var bodyParentDivIDHash = "#"+bodyParentDivID;
+	$("body").append("<div id='"+bodyParentDivID+"'></div>");
+
 	$("#page-indicator").text(beginIndex);
 	$("#songs-table").remove();
-    $("body").append('<div id="songs-table"></div>');
+    $(bodyParentDivIDHash).append('<div id="songs-table"></div>');
 
 	var slicedSongs = finally_loadedSongs.slice(beginIndex, pageSize);
     $("#songs-table").tabulator({

@@ -20,9 +20,33 @@ body {
 	width: 99%;
 }
 
+/* Header */
+
+#header {
+	background-color:white;
+
+	display: clear;
+	margin: 0px auto 50px auto;
+	padding: 15px;
+
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px #a3a3a37d;
+
+	width: 400px;
+}
+
+#masthead {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#button-tray {
+	margin-top: 20px;
+	height: 60px;
+}
+
+
 #back-button {
-	top: 0px;
-	position: absolute;
 	background-color: #ab82ec;
 	color: white;
 	padding: 5px;
@@ -36,9 +60,6 @@ body {
 }
 
 #next-button {
-	top: 0px;
-	right: 0px;
-	position: absolute;
 	background-color: #e29e77;
 	color: white;
 	padding: 5px;
@@ -52,10 +73,10 @@ body {
 }
 
 #page-indicator {
-	left: 0px;
-	width: 99%;
-	text-align: center;
-	color: black;
 	position: absolute;
-	top: 0px;
+	width: 400px;
+	text-align: center;
+	color: #dbdbdb;
+	margin-top: 10px;
+    pointer-events: none;
 }

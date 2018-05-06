@@ -99,7 +99,6 @@ class FinallyFrontend {
 	        var originId = songParsedJSON.origin.identifier;
 		    var metadata = songParsedJSON.finallyMetadata;
 		    var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
-
 		    songs.push(song);
 	    }
 
@@ -108,15 +107,8 @@ class FinallyFrontend {
 	}
 
 	generateDivsFromSongs(songs) {
-	    // $(this.alertDivSelector).text("🥁 Sorting " + reasonable.length + " songs...");
-	    // var sortedSongs = self.sortedSongList(songs);
-
 	    $(this.alertDivSelector).text("🥁 Generating graphics, then we're done");
-	    var generatedDivs = [];
-	    for (var i = 0; i < songs.length; i++) {
-	    	generatedDivs.push(songs[i].generateDiv());
-	    }
-
+	    var generatedDivs = songs.map(s => s.generateDiv());
 	    return generatedDivs;
 	}
 
