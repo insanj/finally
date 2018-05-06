@@ -4,30 +4,20 @@ from finally_storage import *
 from finally_importer import *
 from finally_storage_providers import *
 from finally_importer_spotify import *
-
-class FinallyConfig:
-	debugPrinting = None
-	importFromOnline = None
-	importFromOffline = None
-	exportFinallyLibrary = None
-
-	def __init__(self, importFromOnline=True, importFromOffline=True, debugPrinting=True, exportFinallyLibrary=True):
-		self.importFromOnline = importFromOnline
-		self.importFromOffline = importFromOffline
-		self.debugPrinting = debugPrinting
-		self.exportFinallyLibrary = exportFinallyLibrary
+from finally_helpers import *
 
 class Finally:
 	config = None
 	parser = None
+	logger = None
 
 	def __init__(self, config=FinallyConfig()):
 		self.config = config
 		self.parser = FinallySongParser()
+		self.logger = FinallyLogger(config)
 
 	def debugPrint(self, string):
-		if self.config.debugPrinting is True:
-			print "[Finally] " + string
+		self.logger.log(string)
 
 	def combineTwoArrays(self, one, two):
 		three = one
@@ -49,7 +39,7 @@ class Finally:
 
 	def onlineImportSongs(self):
 		self.debugPrint("ONLINE importing...")
-		spotifyImporter = FinallySpotifyImporter()
+		spotifyImporter = FinallySpotifyImporter(self.logger)
 		spotifyLibrary = spotifyImporter.importLibrary()
 
 		spotifyLibraryFile = FinallyFile("online", spotifyLibrary)

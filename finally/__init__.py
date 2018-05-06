@@ -6,3 +6,4 @@ from finally_parser import *
 from finally_song import *
 from finally_storage import *
 from finally_storage_providers import *
+from finally_helpers import *

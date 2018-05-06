@@ -30,16 +30,26 @@ function loadFinally() {
     });
 }
 
+function generateHeaderDivString() {
+	var headerString = '<div id="header">';
+	headerString += '<div id="back-button">Back</div>';
+	headerString += '<div id="page-indicator"></div>';
+	headerString += '<div id="next-button">Next</div>';
+	headerString += "</div>";
+	return headerString;
+}
+
 function renderFinally(data) {
     $("#loading").remove();
     $("#alert").text("🥁");
-	$("body").append('<div id="back-button">Back</div>');
-	$("body").append('<div id="page-indicator"></div>');
-    $("body").append('<div id="next-button">Next</div>');
+
+	var headerDivString = generateHeaderDivString();
+    $("body").append(headerDivString);
 
     finally_loadedSongs = generateTabulatorDataFromSongs(data);
     finally_currentIndex = 0;
     renderFinallySongs(finally_currentIndex, finally_defaultPageSize);
+    renderFinallyLibraryMetadata(finally_loadedSongs, "header");
 }
 
 //
@@ -66,6 +76,48 @@ function generateTabulatorDictFromSong(song, i) {
 }
 
 // 
+
+
+function renderFinallyLibraryMetadata(metadataSongs, parentDivID) {
+	var generatedDivs = createFinallyLibraryMetadataDivs(metadataSongs);
+	var parentDivIDHash = "#"+parentDivID;
+	for (var i = 0; i < generatedDivs.length; i++) {
+		var g = generatedDivs[i];
+		$(parentDivIDHash).append(g);
+	}
+}
+
+function createFinallyLibraryMetadataDivs(metadataSongs) {
+	var finallyTotalSongs = metadataSongs.length;
+	var totalSongsDiv = generateFinallyLibraryMetadataDiv({"id" : "total-songs"}, "Total Songs: " + finallyTotalSongs);
+
+	var finallyTotalArtists;
+	
+	var finallyTotalAlbums;
+	var finallyTotalDuration;
+	var finallyTotalSpotifySongs;
+	var finallyTotaliTunesSongs;
+	var finallyTotalSongs;
+
+	var generatedDivs = [totalSongsDiv];
+	return generatedDivs;
+}
+
+function generateFinallyLibraryMetadataDiv(elementInfo, elementContents) {
+	var divInFlight = "<div ";
+	for (var i = 0; i < elementInfo.length; i++) {
+		var e = elementInfo[i];
+		var divString = e["key"] + "=" + e["value"];
+		divInFlight += divString;
+	}
+
+	divInFlight += ">";
+	divInFlight += elementContents;
+	divInFlight += "</div>";
+	return divInFlight;
+}
+
+//
 
 function renderFinallySongs(beginIndex, pageSize) {
 	$("#page-indicator").text(beginIndex);

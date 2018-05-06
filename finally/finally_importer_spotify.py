@@ -6,53 +6,60 @@ import time
 import base64
 import json
 from finally_importer import *
+from finally_helpers import *
 
 class FinallySubimporter:
 	def importLibrary(self):
-		raise ValueError("FinallySubimporter no-op must override importLibrary")	
+		raise ValueError("FinallySubimporter no-op must override importLibrary")
 
 class FinallySpotifyImporter(FinallySubimporter):
 	oauthCodeFolderPath = None
 	oauthCodeFilePath = None
+	logger = None
 
-	def __init__(self):
+	def __init__(self, logger):
 		self.oauthCodeFolderPath = os.path.join(os.getcwd(), "oauth")
 		self.oauthCodeFilePath = os.path.join(self.oauthCodeFolderPath, "spotify.txt")
+		self.logger = logger
 
 	def importLibrary(self):
-		oauthCodeImporter = FinallySpotifyOAuthCodeImporter(self.oauthCodeFilePath)
+		oauthCodeImporter = FinallySpotifyOAuthCodeImporter(self.logger, self.oauthCodeFilePath)
 		oauthCode = oauthCodeImporter.importLibrary()
 
 		if oauthCode is None:
-			raise ValueError("FinallySpotifyOAuthCodeImporter failed to get oauthCode")
+			self.logger.error("FinallySpotifyOAuthCodeImporter failed to get oauthCode")
+			return None
 		else:
-			print "\nFinallySpotifyLibraryImporter oauthCode = " + str(oauthCode)
+			self.logger.log("\nFinallySpotifyLibraryImporter oauthCode = " + str(oauthCode))
 
-		oauthTokenImporter = FinallySpotifyOAuthTokenImporter(oauthCode)
+		oauthTokenImporter = FinallySpotifyOAuthTokenImporter(self.logger, oauthCode)
 		oauthToken = oauthTokenImporter.importLibrary()
 
 		if oauthToken is None:
-			print "\nFinallySpotifyLibraryImporter deleting existing oauth code and trying again"
+			self.logger.log("\nFinallySpotifyLibraryImporter deleting existing oauth code and trying again")
 			oauthCodeImporter.deleteExistingOAuthCode() # invalid code probs
 			return self.importLibrary() # gross
 		else:
-			print "\nFinallySpotifyLibraryImporter oauthToken = " + str(oauthToken)
+			self.logger.log("\nFinallySpotifyLibraryImporter oauthToken = " + str(oauthToken))
 
-		authedImporter = FinallySpotifyLibraryImporter(oauthToken)
+		authedImporter = FinallySpotifyLibraryImporter(self.logger, oauthToken)
 		authedLibrary = authedImporter.importLibrary()
 
 		if authedLibrary is None:
-			raise ValueError("FinallySpotifyLibraryImporter failed to get authedLibrary")
+			self.logger.error("FinallySpotifyLibraryImporter failed to get authedLibrary")
+			return None
 		else:
-			print "\nFinallySpotifyLibraryImporter authedLibrary complete!"
+			self.logger.log("\nFinallySpotifyLibraryImporter authedLibrary complete!")
 
 		return authedLibrary
 
 class FinallySpotifyOAuthCodeImporter(FinallySubimporter):
 	oauthCodePath = None
+	logger = None
 
-	def __init__(self, oauthCodePath):
+	def __init__(self, logger, oauthCodePath):
 		self.oauthCodePath = oauthCodePath
+		self.logger = logger
 
 	def deleteExistingOAuthCode(self):
 		os.remove(self.oauthCodePath)
@@ -90,7 +97,8 @@ class FinallySpotifyOAuthCodeImporter(FinallySubimporter):
 
 		if savedToken is None:
 			if attempts <= 0:
-				raise ValueError("FinallySpotifyOAuthCodeImporter attemptToImportLibrary No more attempts!")
+				self.logger.error("FinallySpotifyOAuthCodeImporter attemptToImportLibrary No more attempts!")
+				return None
 			else:
 				self.sendSpotifyOAuthCodeEndpoint()
 				time.sleep(2)
@@ -103,7 +111,7 @@ class FinallySpotifyOAuthCodeImporter(FinallySubimporter):
 			with open(self.oauthCodePath) as contents:
 				return contents.read()
 		except Exception, e:
-			print "\nFinallySpotifyOAuthCodeImporter getSavedOAuthCode except = " + str(e)
+			self.logger.log("\nFinallySpotifyOAuthCodeImporter getSavedOAuthCode except = " + str(e))
 			return None
 
 	def sendSpotifyOAuthCodeEndpoint(self):
@@ -112,14 +120,16 @@ class FinallySpotifyOAuthCodeImporter(FinallySubimporter):
 		spotifyParams = self.spotifyEndpointParams()
 		requestURLResponse = requests.get('https://'+spotifyURL+spotifyEndpoint, params=spotifyParams)
 		requestURL = requestURLResponse.url
-		print "\nOpening " + requestURL + "..."
+		self.logger.log("\nOpening " + requestURL + "...")
 		webbrowser.open(requestURL, new=2)
 
 class FinallySpotifyOAuthTokenImporter(FinallySubimporter):
 	oauthCode = None
+	logger = None
 
-	def __init__(self, oauthCode):
+	def __init__(self, logger, oauthCode):
 		self.oauthCode = oauthCode
+		self.logger = logger
 
 	def spotifyAPIURL(self):
 		return "accounts.spotify.com"
@@ -159,38 +169,40 @@ class FinallySpotifyOAuthTokenImporter(FinallySubimporter):
 		spotifyParams = self.spotifyEndpointParams()
 		spotifyHeaders = self.spotifyEndpointHeaders()
 
-		print "\nFinallySpotifyOAuthTokenImporter sendSpotifyTokenEndpoint Sending token endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " params = " + str(spotifyParams) + " headers = " + str(spotifyHeaders)
+		self.logger.log("\nFinallySpotifyOAuthTokenImporter sendSpotifyTokenEndpoint Sending token endpoint w spotifyURL = " + str(spotifyURL) + " endpoint = " + str(spotifyEndpoint) + " params = " + str(spotifyParams) + " headers = " + str(spotifyHeaders))
 
 		spotifyAPIConnection = httplib.HTTPSConnection(spotifyURL)
 		spotifyAPIConnection.request("POST", spotifyEndpoint, spotifyParams, spotifyHeaders)
 		spotifyAPIResponse = spotifyAPIConnection.getresponse()
-		print "\nspotifyAPIResponse =" + str(spotifyAPIResponse.status) + ", " + str(spotifyAPIResponse.reason)
+		self.logger.log("\nspotifyAPIResponse =" + str(spotifyAPIResponse.status) + ", " + str(spotifyAPIResponse.reason))
 
 		spotifyData = spotifyAPIResponse.read()
 		spotifyAPIConnection.close()
 
-		print "\nFinallySpotifyOAuthTokenImporter sendSpotifyTokenEndpoint = " + str(spotifyData)
+		self.logger.log("\nFinallySpotifyOAuthTokenImporter sendSpotifyTokenEndpoint = " + str(spotifyData))
 		jsonLoad = json.loads(spotifyData)
 
 		try:
 			error = jsonLoad["error"]
-			print "\nToken request error = " + str(error)
+			self.logger.log("\nToken request error = " + str(error))
 			return None
 		except Exception, e:
-			print "\nToken request has no JSON error"
+			self.logger.log("\nToken request has no JSON error")
 			try:
 				return jsonLoad["access_token"]
 			except Exception, e:
-				print "\nToken request has no access_token??"
+				self.logger.log("\nToken request has no access_token??")
 				return None
 
 class FinallySpotifyLibraryImporter(FinallySubimporter):
 	oauthToken = None
 	attemptToRecurse = None
+	logger = None
 
-	def __init__(self, oauthToken, attemptToRecurse=True):
+	def __init__(self, logger, oauthToken, attemptToRecurse=True):
 		self.oauthToken = oauthToken
 		self.attemptToRecurse = attemptToRecurse
+		self.logger = logger
 
 	def spotifyAPIURL(self):
 		return "api.spotify.com"
@@ -217,14 +229,14 @@ class FinallySpotifyLibraryImporter(FinallySubimporter):
 		jsonLoad = None
 		try:
 			jsonLoad = json.loads(spotifyData)
-			print "\nFinallySpotifyLibraryImporter singleSendSpotifyTracksEndpoint done = " + str(len(jsonLoad))
+			self.logger.log("\nFinallySpotifyLibraryImporter singleSendSpotifyTracksEndpoint done = " + str(len(jsonLoad)))
 		except Exception, e:
-			print "\nFinallySpotifyLibraryImporter error with json " + str(spotifyData) + " = " + str(e)
+			self.logger.log("\nFinallySpotifyLibraryImporter error with json " + str(spotifyData) + " = " + str(e))
 			return None
 
 		try:
 			error = jsonLoad["error"]["status"]
-			print "\nFinallySpotifyLibraryImporter error = " + str(error)
+			self.logger.log("\nFinallySpotifyLibraryImporter error = " + str(error))
 			return None
 		except Exception, e:
 			return jsonLoad
@@ -272,8 +284,8 @@ class FinallySpotifyLibraryImporter(FinallySubimporter):
 					for subresultItem in subresultItems:
 						baseItemsArray.append(subresultItem)
 				except Exception, e:
-					print "Unable to grab the items from subresult = " + str(subresult)
-					print "unrollRecursiveResults e " + str(e)
+					self.logger.error("Unable to grab the items from subresult = " + str(subresult))
+					self.logger.error("unrollRecursiveResults e " + str(e))
 
 			baseResult["items"] = baseItemsArray
 			return baseResult
@@ -291,18 +303,18 @@ class FinallySpotifyLibraryImporter(FinallySubimporter):
 				if nextURL is None:
 					return foundResults	
 				else:
-					print "\nFinallySpotifyLibraryImporter found next URL = " + str(nextURL) + " so far have " + str(len(foundResults))
+					self.logger.log("\nFinallySpotifyLibraryImporter found next URL = " + str(nextURL) + " so far have " + str(len(foundResults)))
 					nextEndpoint = self.extractEndpointFromNextURL(nextURL)
 
 					return self.recursivelySendSpotifyTracksEndpoint(nextEndpoint, foundResults)
 			except Exception, e:
-				print "\nFinallySpotifyLibraryImporter NO NEXT URL FOUND in = " + str(jsonResponse.keys()) + "\n error = " + str(e) 
+				self.logger.log("\nFinallySpotifyLibraryImporter NO NEXT URL FOUND in = " + str(jsonResponse.keys()) + "\n error = " + str(e))
 				return foundResults
 		else:
 			return foundResults	
 
 	def importLibrary(self):
-		print "\nFinallySpotifyLibraryImporter beginning import, attemptToRecurse = " + str(self.attemptToRecurse)
+		self.logger.log("\nFinallySpotifyLibraryImporter beginning import, attemptToRecurse = " + str(self.attemptToRecurse))
 
 		parsedJSONResponse = None
 		if self.attemptToRecurse is True:
@@ -314,5 +326,5 @@ class FinallySpotifyLibraryImporter(FinallySubimporter):
 		return json.dumps(parsedJSONResponse)
 
 if __name__ == "__main__":
-	i = FinallySpotifyImporter()
+	i = FinallySpotifyImporter(FinallyLogger())
 	print "\n\n\n" + i.importLibrary()

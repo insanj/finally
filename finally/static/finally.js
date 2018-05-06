@@ -87,7 +87,7 @@ class FinallyFrontend {
 	    }
 	    var songs = [];
 	    for (var i = 0; i < reasonable.length; i++) {
-	        $(this.alertDivSelector).text("🥁 Rendering song " + i + "/" + reasonable.length);
+	        $(this.alertDivSelector).text("🥁 Parsing song " + i + "/" + reasonable.length);
 	        var songJSON = reasonable[i];
 	        var songParsedJSON = {};
 	        try {
@@ -97,16 +97,14 @@ class FinallyFrontend {
 	        }
 
 	        var originId = songParsedJSON.origin.identifier;
-	        if (originId == "spotify") { ///// TODO QQQ
-		        var metadata = songParsedJSON.finallyMetadata;
-		        var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
+		    var metadata = songParsedJSON.finallyMetadata;
+		    var song = new FinallySong(originId, metadata.name, metadata.artist, metadata.album, metadata.duration);
 
-		        songs.push(song);
-	        }
-
+		    songs.push(song);
 	    }
 
-	    return songs;
+	    var sortedSongs = this.sortedSongList(songs);
+	    return sortedSongs;
 	}
 
 	generateDivsFromSongs(songs) {
