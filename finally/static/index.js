@@ -1,7 +1,7 @@
 /* Requires finally.js */
 var finally_loadedSongs = [];
 var finally_currentIndex = -1;
-var finally_defaultPageSize = 100;
+var finally_defaultPageSize = 500;
 
 function runAndLoadFinally() {
     $("#alert").text("🥁 Welcome!");
@@ -77,6 +77,12 @@ function generateTabulatorDictFromSong(song, i) {
 
 // 
 
+function createFinallyServerMetadataDivs() {
+	
+}
+
+//
+
 
 function renderFinallyLibraryMetadata(metadataSongs, parentDivID) {
 	var generatedDivs = createFinallyLibraryMetadataDivs(metadataSongs);
@@ -91,6 +97,10 @@ function renderFinallyLibraryMetadata(metadataSongs, parentDivID) {
 function createFinallyLibraryMetadataDivs(metadataSongs) {
 	var finallyTotalSongs = metadataSongs.length;
 	var totalSongsDiv = generateFinallyLibraryMetadataDiv({"id" : "total-songs"}, "Total Songs: " + finallyTotalSongs);
+
+	var finallyOnlySongs = metadataSongs.map(a => a.name);
+	var finallyTotalSongsOnly = finallyOnlySongs.filter((v, i, a) => a.indexOf(v) === i).length; 
+	var finallyTotalSongsOnlyDiv = generateFinallyLibraryMetadataDiv({"id" : "total-songs-only"}, "Total Songs (unique): " + finallyTotalSongsOnly);
 
 	var finallyOnlyArtists = metadataSongs.map(a => a.artist);
 	var finallyTotalArtists = finallyOnlyArtists.filter((v, i, a) => a.indexOf(v) === i).length; 
@@ -108,7 +118,7 @@ function createFinallyLibraryMetadataDivs(metadataSongs) {
 	var finallyTotaliTunesSongs = metadataSongs.filter(a => a.origin == "itunes").length;
 	var finallyTotaliTunesSongsDiv = generateFinallyLibraryMetadataDiv({"id" : "itunes-songs"}, "iTunes Songs: " + finallyTotaliTunesSongs);
 
-	var generatedDivs = [totalSongsDiv, finallyTotalArtistsDiv, finallyTotalAlbumsDiv, finallyTotalSpotifySongsDiv, finallyTotaliTunesSongsDiv];
+	var generatedDivs = [totalSongsDiv, finallyTotalSongsOnlyDiv, finallyTotalArtistsDiv, finallyTotalAlbumsDiv, finallyTotalSpotifySongsDiv, finallyTotaliTunesSongsDiv];
 	return generatedDivs;
 }
 

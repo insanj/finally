@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import datetime
+import codecs
 from finally_importer import *
 from finally_song import *
 from finally_file import *
@@ -68,6 +69,9 @@ class FinallySongParser:
 			parsedSongs.append(self.parseiTunesXMLIntoSong(plistTrack, file.path))
 
 		return parsedSongs
+
+	def parseAmazonLogIntoSong(self, songLog, logPath):
+		amazonContents = codecs.open(logPath, 'r', encoding='utf-8', errors='ignore').read()
 
 if __name__ == "__main__":
 	print("***** Default FinallyParser results: *****")
